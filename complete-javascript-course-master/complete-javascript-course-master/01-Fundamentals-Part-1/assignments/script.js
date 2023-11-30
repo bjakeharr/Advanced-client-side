@@ -32,3 +32,5 @@ let description =
 	population +
 	" people speak " +
 	language;
+
+description = `${country} is in ${continent} and its ${population} speak ${language}`;
