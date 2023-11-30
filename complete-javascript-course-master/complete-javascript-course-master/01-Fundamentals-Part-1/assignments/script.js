@@ -15,7 +15,7 @@ console.log(typeof language);
 
 //Let const var
 language = "English";
-
+console.log(population / 2);
 population++;
 console.log(population);
 
