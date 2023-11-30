@@ -104,7 +104,7 @@ x = y = 25 - 10 - 5;
 console.log(x, y);
 const averageAge = (ageJonas + ageSarah) / 2;
 console.log(ageJonas, ageSarah, averageAge);
-*/
+
 
 const firstName = "Jonas";
 const job = "teacher";
@@ -124,3 +124,23 @@ console.log(`String
 with
 multiple
 lines`);
+*/
+
+const age = 15;
+
+if (age >= 18) {
+	console.log(`Sarah can start driving license 🚗`);
+} else {
+	const yearsLeft = 18 - age;
+	console.log(`Sarah is too young. Wait another ${yearsLeft} years :)`);
+}
+
+let century;
+const birthYear = 1991;
+if (birthYear <= 2000) {
+	let century = 20;
+} else {
+	let century = 21;
+}
+
+console.log(century);
