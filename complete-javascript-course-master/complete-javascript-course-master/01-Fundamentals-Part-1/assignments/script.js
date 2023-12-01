@@ -1,6 +1,6 @@
 const country = "USA";
 const continent = "North America";
-let population = 331000000;
+let population = 20000000;
 console.log(country);
 console.log(continent);
 console.log(population);
@@ -59,4 +59,12 @@ if (numNeighbors === 1) {
 	console.log("More than one border!");
 } else {
 	console.log("No borders!");
+}
+
+//Logical Operators
+
+if (population < 50000000 && language === "English" && numNeighbors > 0) {
+	console.log(`You should live in ${country}`);
+} else {
+	console.log(`${country} doesn't seem to meet your requirements`);
 }
