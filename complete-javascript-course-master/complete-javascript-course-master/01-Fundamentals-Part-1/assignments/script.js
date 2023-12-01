@@ -1,6 +1,6 @@
 const country = "USA";
 const continent = "North America";
-let population = 20000000;
+let population = 310000000;
 console.log(country);
 console.log(continent);
 console.log(population);
@@ -88,3 +88,9 @@ switch (language) {
 	default:
 		console.log("Great language too!");
 }
+
+//ternary
+
+population >= 33000000
+	? console.log(`${country} population is above average!`)
+	: console.log(`${country} population is below average`);
