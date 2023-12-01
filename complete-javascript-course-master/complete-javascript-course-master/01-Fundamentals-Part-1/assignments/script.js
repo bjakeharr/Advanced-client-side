@@ -14,7 +14,7 @@ console.log(typeof population);
 console.log(typeof language);
 
 //Let const var
-language = "English";
+language = "english";
 console.log(population / 2);
 population++;
 console.log(population);
@@ -63,8 +63,28 @@ if (numNeighbors === 1) {
 
 //Logical Operators
 
-if (population < 50000000 && language === "English" && numNeighbors > 0) {
+if (population < 50000000 && language === "english" && numNeighbors > 0) {
 	console.log(`You should live in ${country}`);
 } else {
 	console.log(`${country} doesn't seem to meet your requirements`);
+}
+
+switch (language) {
+	case "mandarin":
+		console.log("Most number of native speakers!");
+		break;
+	case "spanish":
+		console.log("2nd place in number of native speakers");
+		break;
+	case "english":
+		console.log("3rd place");
+		break;
+	case "hindi":
+		console.log("Number 4");
+		break;
+	case "arabic":
+		console.log("5th most spoken language");
+		break;
+	default:
+		console.log("Great language too!");
 }
