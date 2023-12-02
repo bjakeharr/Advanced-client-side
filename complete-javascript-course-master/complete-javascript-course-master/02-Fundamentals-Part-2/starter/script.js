@@ -29,14 +29,48 @@
 
 //functions assignment
 
-function describeCountry(country, population, capitalCity) {
-	const result = `${country} has a population of ${population} people and its capital city is ${capitalCity}`;
-	return result;
-}
-const country1 = describeCountry("Finland", 6000000, "Helsinki");
-const country2 = describeCountry("Japan", 125000000, "Tokyo");
-const country3 = describeCountry("Ireland", 5033000, "Dublin");
+// function describeCountry(country, population, capitalCity) {
+// 	const result = `${country} has a population of ${population} people and its capital city is ${capitalCity}`;
+// 	return result;
+// }
+// const country1 = describeCountry("Finland", 6000000, "Helsinki");
+// const country2 = describeCountry("Japan", 125000000, "Tokyo");
+// const country3 = describeCountry("Ireland", 5033000, "Dublin");
 
-console.log(country1);
-console.log(country2);
-console.log(country3);
+// console.log(country1);
+// console.log(country2);
+// console.log(country3);
+
+//functions declarations and expressions
+
+//function declaration
+function calcAge1(birthYear) {
+	return 2037 - birthYear;
+}
+
+const age1 = calcAge1(1991);
+console.log(age1);
+
+//function expression
+const calcAge2 = function (birthYear) {
+	return 2037 - birthYear;
+};
+const age2 = calcAge2(1991);
+console.log(age1, age2);
+
+//function declaration and expression assiignment
+function percentageOfWorld1(population) {
+	return (population / 7900) * 100;
+}
+const usaPercentage = percentageOfWorld1(330);
+const irelandPercentage = percentageOfWorld1(5);
+const japanPercentage = percentageOfWorld1(125);
+console.log(usaPercentage, irelandPercentage, japanPercentage);
+
+const percentageOfWorld2 = function (population) {
+	return (population / 7900) * 100;
+};
+const usaPercentage2 = percentageOfWorld2(330);
+const irelandPercentage2 = percentageOfWorld2(5);
+const japanPercentage2 = percentageOfWorld2(125);
+console.log(usaPercentage2, irelandPercentage2, japanPercentage2);
