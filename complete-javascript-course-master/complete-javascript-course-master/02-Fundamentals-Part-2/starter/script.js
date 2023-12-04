@@ -101,26 +101,50 @@ function percentageOfWorld1(population) {
 
 //calling functions within functions
 
-function cutFruitPieces(fruit) {
-	return fruit * 4;
-}
+// function cutFruitPieces(fruit) {
+// 	return fruit * 4;
+// }
 
-function fruitProcessor(apples, oranges) {
-	const applePieces = cutFruitPieces(apples);
-	const orangePieces = cutFruitPieces(oranges);
-	const juice = `Juice with ${applePieces} pieces of apple and ${orangePieces} pieces of orange.`;
-	return juice;
-}
+// function fruitProcessor(apples, oranges) {
+// 	const applePieces = cutFruitPieces(apples);
+// 	const orangePieces = cutFruitPieces(oranges);
+// 	const juice = `Juice with ${applePieces} pieces of apple and ${orangePieces} pieces of orange.`;
+// 	return juice;
+// }
 
-console.log(fruitProcessor(2, 3));
+// console.log(fruitProcessor(2, 3));
 
-// functions in functions assignment
+// // functions in functions assignment
 
-const describePopulation = (country, population) =>
-	`${country} has ${population} million people and makes up ${percentageOfWorld1(
-		population,
-	)} percent of the world population.`;
+// const describePopulation = (country, population) =>
+// 	`${country} has ${population} million people and makes up ${percentageOfWorld1(
+// 		population,
+// 	)} percent of the world population.`;
 
-console.log(describePopulation("USA", 330));
-console.log(describePopulation("Ireland", 5));
-console.log(describePopulation("Japan", 125));
+// console.log(describePopulation("USA", 330));
+// console.log(describePopulation("Ireland", 5));
+// console.log(describePopulation("Japan", 125));
+
+//functions review
+
+const calcAge = function (birthYear) {
+	return 2037 - birthYear;
+};
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+	const age = calcAge(birthYear);
+	const retirement = 65 - age;
+	// return retirement;
+	// return `${firstName} retires in ${retirement} years`;
+
+	if (retirement > 0) {
+		console.log(`${firstName} retires in ${retirement} years`);
+		return retirement;
+	} else {
+		console.log(`${firstName} has already retired.`);
+		return -1;
+	}
+};
+
+console.log(yearsUntilRetirement(1991, "Jonas"));
+console.log(yearsUntilRetirement(1970, "Mike"));
