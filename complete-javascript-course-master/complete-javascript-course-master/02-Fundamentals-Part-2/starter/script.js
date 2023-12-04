@@ -263,10 +263,59 @@ function percentageOfWorld1(population) {
 
 // //Intro to objects assignment
 
-// const myCountry = {
-// 	country: "Japan",
-// 	capital: "Tokyo",
-// 	language: "Japanese",
-// 	population: 125000000,
-// 	neighbors: ["china", "russia"],
+const myCountry = {
+	country: "Japan",
+	capital: "Tokyo",
+	language: "Japanese",
+	population: 125,
+	neighbors: ["china", "russia"],
+};
+
+//dot vs. bracket notation
+
+// const jonas = {
+// 	firstName: "Jonas",
+// 	lastName: "Schmedtman",
+// 	age: 2037 - 1991,
+// 	job: "teacher",
+// 	friends: ["Michael", "Peter", "Steven"],
 // };
+// console.log(jonas);
+
+// console.log(jonas.lastName);
+// console.log(jonas["lastName"]);
+
+// const nameKey = "Name";
+// console.log(jonas[`first` + nameKey]);
+// console.log(jonas[`last` + nameKey]);
+
+// const interestedIn = prompt(
+// 	`What do you want to know about Jonas? choose between firstName, lastName, age,  job, and friends`,
+// );
+
+// if (jonas[interestedIn]) {
+// 	console.log(jonas[`${interestedIn}`]);
+// } else {
+// 	console.log(
+// 		`Wrong request! choose between firstName, lastName, age,  job, and friends.`,
+// 	);
+// }
+
+// jonas.location = "Portugal";
+// jonas["twitter"] = `@jonasschmedtman`;
+// console.log(jonas);
+
+// //challenge
+// console.log(
+// 	`${jonas.firstName} has ${
+// 		jonas.friends.length
+// 	} friends, and his best friend is called ${
+// 		jonas.friends[jonas.friends.indexOf("Michael")]
+// 	}.`,
+// );
+
+//dots versus brackets assignment
+
+// console.log(
+// 	`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length} neighboring countries, and a capital called ${myCountry.capital}.`,
+// );
