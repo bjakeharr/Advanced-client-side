@@ -59,9 +59,9 @@
 // console.log(age1, age2);
 
 // //function declaration and expression assiignment
-// function percentageOfWorld1(population) {
-// 	return (population / 7900) * 100;
-// }
+function percentageOfWorld1(population) {
+	return (population / 7900) * 100;
+}
 // const usaPercentage = percentageOfWorld1(330);
 // const irelandPercentage = percentageOfWorld1(5);
 // const japanPercentage = percentageOfWorld1(125);
@@ -75,26 +75,52 @@
 // const japanPercentage2 = percentageOfWorld2(125);
 // console.log(usaPercentage2, irelandPercentage2, japanPercentage2);
 
-//arrow functions
+// //arrow functions
 
-//arrow function
-const calcAge3 = (birthYear) => 2037 - birthYear;
-const age3 = calcAge3(1991);
-console.log(age3);
+// //arrow function
+// const calcAge3 = (birthYear) => 2037 - birthYear;
+// const age3 = calcAge3(1991);
+// console.log(age3);
 
-const yearsUntilRetirement = (birthYear, firstName) => {
-	const age = 2037 - birthYear;
-	const retirement = 65 - age;
-	// return retirement;
-	return `${firstName} retires in ${retirement} years`;
-};
-console.log(yearsUntilRetirement(1991, "Jonas"));
-console.log(yearsUntilRetirement(1980, "Bob"));
+// const yearsUntilRetirement = (birthYear, firstName) => {
+// 	const age = 2037 - birthYear;
+// 	const retirement = 65 - age;
+// 	// return retirement;
+// 	return `${firstName} retires in ${retirement} years`;
+// };
+// console.log(yearsUntilRetirement(1991, "Jonas"));
+// console.log(yearsUntilRetirement(1980, "Bob"));
 
-//arrow functions assignment
+// //arrow functions assignment
 
-const percentageOfWorld3 = (population) => (population / 7900) * 100;
-const usaPercentage3 = percentageOfWorld3(330);
-const irelandPercentage3 = percentageOfWorld3(5);
-const japanPercentage3 = percentageOfWorld3(125);
-console.log(usaPercentage3, irelandPercentage3, japanPercentage3);
+// const percentageOfWorld3 = (population) => (population / 7900) * 100;
+// const usaPercentage3 = percentageOfWorld3(330);
+// const irelandPercentage3 = percentageOfWorld3(5);
+// const japanPercentage3 = percentageOfWorld3(125);
+// console.log(usaPercentage3, irelandPercentage3, japanPercentage3);
+
+//calling functions within functions
+
+function cutFruitPieces(fruit) {
+	return fruit * 4;
+}
+
+function fruitProcessor(apples, oranges) {
+	const applePieces = cutFruitPieces(apples);
+	const orangePieces = cutFruitPieces(oranges);
+	const juice = `Juice with ${applePieces} pieces of apple and ${orangePieces} pieces of orange.`;
+	return juice;
+}
+
+console.log(fruitProcessor(2, 3));
+
+// functions in functions assignment
+
+const describePopulation = (country, population) =>
+	`${country} has ${population} million people and makes up ${percentageOfWorld1(
+		population,
+	)} percent of the world population.`;
+
+console.log(describePopulation("USA", 330));
+console.log(describePopulation("Ireland", 5));
+console.log(describePopulation("Japan", 125));
