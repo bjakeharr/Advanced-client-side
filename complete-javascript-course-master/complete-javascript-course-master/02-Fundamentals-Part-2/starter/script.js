@@ -240,14 +240,33 @@ function percentageOfWorld1(population) {
 // }
 
 //array methods assignment
-const neighbors = new Array("Mexico", "Canada");
-neighbors.push("Utopia");
-console.log(neighbors.length, neighbors);
-neighbors.pop();
-console.log(neighbors.length, neighbors);
+// const neighbors = new Array("Mexico", "Canada");
+// neighbors.push("Utopia");
+// console.log(neighbors.length, neighbors);
+// neighbors.pop();
+// console.log(neighbors.length, neighbors);
 
-if (!neighbors.includes("Germany")) {
-	console.log(`Probably not a central European country`);
-}
-neighbors[1] = "Canadia";
-console.log(neighbors);
+// if (!neighbors.includes("Germany")) {
+// 	console.log(`Probably not a central European country`);
+// }
+// neighbors[1] = "Canadia";
+// console.log(neighbors);
+
+// //Intro to Objects
+// const jonas = {
+// 	firstName: "Jonas",
+// 	lastName: "Schmedtman",
+// 	age: 2037 - 1991,
+// 	job: "teacher",
+// 	friends: ["Michael", "Peter", "Steven"],
+// };
+
+// //Intro to objects assignment
+
+// const myCountry = {
+// 	country: "Japan",
+// 	capital: "Tokyo",
+// 	language: "Japanese",
+// 	population: 125000000,
+// 	neighbors: ["china", "russia"],
+// };
