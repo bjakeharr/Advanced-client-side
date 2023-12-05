@@ -67,9 +67,9 @@ function percentageOfWorld1(population) {
 // const japanPercentage = percentageOfWorld1(125);
 // console.log(usaPercentage, irelandPercentage, japanPercentage);
 
-// const percentageOfWorld2 = function (population) {
-// 	return (population / 7900) * 100;
-// };
+const percentageOfWorld2 = function (population) {
+	return (population / 7900) * 100;
+};
 // const usaPercentage2 = percentageOfWorld2(330);
 // const irelandPercentage2 = percentageOfWorld2(5);
 // const japanPercentage2 = percentageOfWorld2(125);
@@ -381,4 +381,57 @@ const myCountry = {
 // //for loop assignment
 // for (let vote = 1; vote <= 50; vote++) {
 // 	console.log(`Voter number ${vote} is currently voting.`);
+// }
+
+//Looping arrays, breaking and continuing
+
+// const jonas = [
+// 	"Jonas",
+// 	"Schmedtman",
+// 	2037 - 1991,
+// 	"teacher",
+// 	["Michael", "Peter", "Steven"],
+// ];
+// const types = [];
+
+// for (let i = 0; i < jonas.length; i++) {
+// 	console.log(jonas[i]);
+
+// 	// types[i] = typeof jonas[i];
+// 	// console.log(types[i]);
+// 	types.push(typeof jonas[i]);
+// }
+
+// const years = [1991, 2007, 1969, 2020];
+// const ages = [];
+
+// for (let i = 0; i < years.length; i++) {
+// 	ages.push(2037 - years[i]);
+// }
+// console.log(ages);
+
+// //continue and break
+// for (let i = 0; i < jonas.length; i++) {
+// 	if (typeof jonas[i] !== "string") continue;
+// 	console.log(jonas[i], typeof jonas[i]);
+// }
+
+// for (let i = 0; i < jonas.length; i++) {
+// 	if (typeof jonas[i] === "number") break;
+// 	console.log(jonas[i], typeof jonas[i]);
+// }
+
+// //Looping arrays assignment
+// const populations = [330, 5, 125, 1170];
+// for (let i = 0; i < populations.length; i++) {
+// 	console.log(
+// 		`This country makes up ${percentageOfWorld1(
+// 			populations[i],
+// 		)} percent of the world population.`,
+// 	);
+// 	console.log(
+// 		`This country makes up ${percentageOfWorld2(
+// 			populations[i],
+// 		)} percent of the world population.`,
+// 	);
 // }
