@@ -470,3 +470,36 @@ const myCountry = {
 // 		console.log(`country: ${listOfNeighbors[i][j]}`);
 // 	}
 // }
+
+//The while loop
+
+// for (let rep = 1; rep <= 10; rep++) {
+// 	console.log(`lifting weights repetition ${rep}`);
+// }
+
+// let rep = 1;
+// while (rep <= 10) {
+// 	console.log(`lifting weights repetition ${rep}`);
+// 	rep++;
+// }
+
+// let dice = Math.trunc(Math.random() * 6 + 1);
+
+// while (dice !== 6) {
+// 	console.log(`The dice rolled a ${dice}`);
+// 	dice = Math.trunc(Math.random() * 6 + 1);
+// 	if (dice === 6) console.log(`The loop is ending`);
+// }
+
+//while loop assignment
+// const percentages3 = [];
+// const populations = [330, 5, 125, 1170];
+// let i = 0;
+
+// while (i < populations.length) {
+// 	percentages3.push(percentageOfWorld1(populations[i]));
+// 	console.log(
+// 		`This country makes up ${percentages3[i]} percent of the world population`,
+// 	);
+// 	i++;
+// }
