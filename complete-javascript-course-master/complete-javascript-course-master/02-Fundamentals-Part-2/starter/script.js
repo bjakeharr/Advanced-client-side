@@ -435,3 +435,38 @@ const myCountry = {
 // 		)} percent of the world population.`,
 // 	);
 // }
+
+// // backwards looping
+// const jonas = [
+// 	"Jonas",
+// 	"Schmedtman",
+// 	2037 - 1991,
+// 	"teacher",
+// 	["Michael", "Peter", "Steven"],
+// ];
+// const types = [];
+
+// for (let i = jonas.length - 1; i >= 0; i--) {
+// 	console.log(jonas[i]);
+// }
+// //loopception
+// for (let i = 1; i <= 4; i++) {
+// 	console.log(`Starting repetition ${i}`);
+// 	for (let i = 1; i <= 6; i++) {
+// 		console.log(`lift number ${i}`);
+// 	}
+// }
+
+// //backwards looping and loopception assignment
+
+// const listOfNeighbors = [
+// 	["Canada", "Mexico"],
+// 	["Spain"],
+// 	["Norway", "Sweden", "Russia"],
+// ];
+
+// for (let i = listOfNeighbors.length - 1; i >= 0; i--) {
+// 	for (let j = listOfNeighbors[i].length - 1; j >= 0; j--) {
+// 		console.log(`country: ${listOfNeighbors[i][j]}`);
+// 	}
+// }
