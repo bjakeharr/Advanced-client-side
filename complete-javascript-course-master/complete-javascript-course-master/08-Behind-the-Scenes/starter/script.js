@@ -39,3 +39,37 @@
 //global scope- outside of any function or block.  accessible anywhere in the code
 //function scope- variables are only accessible within the function in which they are declared and cannot be accessed from outside the function. Also called local scope.
 //block scope - variables accessible only INSIDE block {} only applies to let and const variables.
+
+//scoping lecture coding
+
+function calcAge(birthYear) {
+    const age = 2037-birthYear;
+    function printAge(){
+        let output = `${firstName}, you are ${age}, born in ${birthYear}`;
+        console.log(output);
+
+        if(birthYear>= 1981 && birthYear <= 1996) {
+            var millenial = true;
+            // creating NEW variable with same namae as outer scope variable
+
+            //reassigning outer variable
+            output= `new output`;
+            
+            const firstName = `Steven`;
+            const str = `Oh, and you are a millenial ${firstName}`;
+            console.log(str);
+
+            function add(a,b){
+                return a+b;
+            }
+        }
+
+       
+        // console.log(millenial)
+        
+    }
+    printAge();
+}
+
+const firstName = 'Jonas';
+calcAge(1991);
