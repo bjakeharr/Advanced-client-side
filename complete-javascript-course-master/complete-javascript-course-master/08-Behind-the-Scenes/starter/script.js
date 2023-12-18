@@ -119,3 +119,58 @@
 // var x = 1;
 // let y=2;
 // const z=3;
+
+//"this" keyword notes
+
+//special variable that is created for every execution context
+//points to the 'owner' function
+//value is assigned when called
+
+//'this' keyword coding practice
+
+// console.log(this); //the global window object
+
+// const calcAge = function(birthYear){
+//     console.log(2037-birthYear);
+//     console.log(this); //comes back as undefined in 'strict mode' within a function
+// }
+
+// calcAge(1991);
+
+// const calcAgeArrow = birthYear => {
+//     console.log(2037-birthYear);
+//     console.log(this); //when used in an arrow function, this returns as the global window object
+// }
+// calcAgeArrow(1980);
+
+// const jonas = {
+//     year: 1991,
+//     calcAge: function () {
+//         console.log(this); //when used within an object, 'this' will refer to the object it is called by
+//     },
+// };
+// jonas.calcAge();
+
+// const matilda = {
+//     year : 2017,
+// };
+
+// matilda.calcAge = jonas.calcAge;
+
+// matilda.calcAge();
+// const f = jonas.calcAge;
+// f();
+
+
+//regular functions versus arow functions 
+
+const jonas = {
+        year: 1991,
+        firstName: 'Jonas',
+        calcAge: function () {
+            console.log(this); //when used within an object, 'this' will refer to the object it is called by
+        },
+        greet: () => console.log(`Hey ${this.firstName}`), //since 'this' is being called using an arrow function, even though its being called by an object, it will still refer back to the global window and be 'undefined'
+    };
+
+    jonas.greet();
