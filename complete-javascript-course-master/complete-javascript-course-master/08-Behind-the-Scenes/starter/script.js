@@ -42,34 +42,80 @@
 
 //scoping lecture coding
 
-function calcAge(birthYear) {
-    const age = 2037-birthYear;
-    function printAge(){
-        let output = `${firstName}, you are ${age}, born in ${birthYear}`;
-        console.log(output);
+// function calcAge(birthYear) {
+//     const age = 2037-birthYear;
+//     function printAge(){
+//         let output = `${firstName}, you are ${age}, born in ${birthYear}`;
+//         console.log(output);
 
-        if(birthYear>= 1981 && birthYear <= 1996) {
-            var millenial = true;
-            // creating NEW variable with same namae as outer scope variable
+//         if(birthYear>= 1981 && birthYear <= 1996) {
+//             var millenial = true;
+//             // creating NEW variable with same namae as outer scope variable
 
-            //reassigning outer variable
-            output= `new output`;
-            
-            const firstName = `Steven`;
-            const str = `Oh, and you are a millenial ${firstName}`;
-            console.log(str);
+//             //reassigning outer variable
+//             output= `new output`;
 
-            function add(a,b){
-                return a+b;
-            }
-        }
+//             const firstName = `Steven`;
+//             const str = `Oh, and you are a millenial ${firstName}`;
+//             console.log(str);
+
+//             function add(a,b){
+//                 return a+b;
+//             }
+//         }
 
        
-        // console.log(millenial)
+//         // console.log(millenial)
         
-    }
-    printAge();
-}
+//     }
+//     printAge();
+// }
 
-const firstName = 'Jonas';
-calcAge(1991);
+// const firstName = 'Jonas';
+// calcAge(1991);
+
+//hoisting notes
+//hoisting makes some types of variables available in the code before they are actually defined "lifted to the top of their scope"
+//during the scanning phase of the EC the code is searched for variable declarations that are then plugged in ahead of their actual place in the code
+//let and const variables are not hoisted at all they come backa s undefined 
+
+//hositing and tdz practice
+
+//hoisting using var to create undefined
+// console.log(me);
+
+// console.log(job);
+// console.log(year);
+
+// var me = `Jonas`;
+// let job = `teacher`;
+// const year = 1991;
+
+// //functions
+// console.log(addDecl(2,3));
+// console.log(addExpr(2,3));
+// console.log(addArrow(2,3));
+
+// function addDecl(a,b) {
+
+//     return a+b;
+// }
+
+// const addExpr = function (a,b) {
+//     return a+b;
+// }
+
+// const addArrow = (a,b) => a+b;
+
+//example
+// if(!numProducts) deleteShoppingCart();
+
+// var numProducts = 10;
+
+// function deleteShoppingCart(){
+//     console.log(`all produccts deleted`);
+// }
+
+// var x = 1;
+// let y=2;
+// const z=3;
