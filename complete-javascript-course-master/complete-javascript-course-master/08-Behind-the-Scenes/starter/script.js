@@ -164,13 +164,105 @@
 
 //regular functions versus arow functions 
 
-const jonas = {
-        year: 1991,
-        firstName: 'Jonas',
-        calcAge: function () {
-            console.log(this); //when used within an object, 'this' will refer to the object it is called by
-        },
-        greet: () => console.log(`Hey ${this.firstName}`), //since 'this' is being called using an arrow function, even though its being called by an object, it will still refer back to the global window and be 'undefined'
-    };
+// const jonas = {
+//         year: 1991,
+//         firstName: 'Jonas',
+//         calcAge: function () {
+//         // console.log(this); //when used within an object, 'this' will refer to the object it is called by
+//         console.log(2037-this.year)
+        
+//         //solution 1
+//         const self = this;
+//         const isMillenial = function() {
+//             console.log(this);
+//             console.log(self.year >= 1981 && self.year <= 1996);
+//             // console.log(this.year >= 1981 && this.year <= 1996);
 
-    jonas.greet();
+//         //solution 2
+//         const isMillenial = () => {
+//             console.log(this);
+//             console.log(this.year >= 1981 && this.year <= 1996);
+//         };
+//         isMillenial();  
+//     },
+
+//     greet : () => {
+//         console.log(this);
+//         console.log(`Hey ${this.firstName}`);
+//     },
+// };
+// jonas.greet();
+// jonas.calcAge();
+
+//     //never use a arrow function as a method(function wihtin an object)
+
+// //arguments keyword
+// const addExpr = function (a,b) {
+//     console.log(arguments);
+//     return a+b;
+// };
+// addExpr(2,5);
+// addExpr(2,5,8,12);
+
+// //arrow functions does not receive the arguments keyword array
+// var addArrow = (a,b) => a+b;
+
+
+// //primitives vs objects
+
+// let age = 30;
+// let oldAge = age;
+// age=31;
+// console.log(age);
+// console.log(oldAge); //returns initial assignment even though previous assignment is overwritten
+
+// const me = {
+//     name: `Jonas`,
+//     age: 30,
+// };
+
+// const friend = me;
+// friend.age = 27;
+// console.log(`friend:`, friend);
+// console.log(`me`, me); // both ages come back as 27 even though only frined.age was 'edited'
+
+//primitives vs objects practice
+
+// let lastName = `williams`;
+// let oldLastName = lastName;
+// lastName = 'Davis';
+// console.log(lastName,oldLastName);
+
+// const jessica = {
+//     firstName: `Jessica`,
+//     lastName: `Williams`,
+//     age: 27,
+
+// };
+
+// //copying with ctrl c object to make a new variable doesnt acctually make a new variable with the same values, it just hmakes a variable that points to the same memory address in the heap
+// const marriedJessica = jessica;
+// marriedJessica.lastName = `Davis`;
+// console.log(`before marriage:`, jessica);
+// console.log(`after marriage:`, marriedJessica);
+
+
+// //copying objects
+// const jessica2 = {
+//     firstName: `Jessica`,
+//     lastName: `Williams`,
+//     age: 27,
+//     family: [`Alice`,`Bob`],
+// };
+
+// //object.assign only creates a shallow copy of first level object properties
+// const jessicaCopy= Object.assign({},jessica2);
+// jessicaCopy.lastName = `Davis`;
+// console.log(`before marriage:`, jessica2);
+// console.log(`after marriage:`, jessicaCopy);
+
+// jessicaCopy.family.push(`Mary`);
+// jessicaCopy.family.push(`John`);
+
+// console.log(`before marriage:`, jessica2);
+// console.log(`after marriage:`, jessicaCopy);
