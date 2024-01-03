@@ -52,6 +52,34 @@ const restaurant = {
   },
 };
 
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// //OR assignment operator
+// // rest1.numGuests ||= 10;
+// // rest2.numGuests ||= 10;
+
+// //nullish assignment operator
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10;
+
+// //AND assignment operator
+// rest2.owner = rest2.owner && '<anon>';
+// rest1.owner = rest1.owner && '<anon>';
+// rest1.owner &&= '<anon>';
+// rest2.owner &&= '<anon>';
+
+// console.log(rest1);
+// console.log(rest2);
 /////////////////destructuring arrays//////////////
 
 // //create example array
@@ -245,6 +273,10 @@ const restaurant = {
 // restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 
 //////Nullish operator//////////////
-restaurant.numGuests = 0;
-const guests = restaurant.numGuests || 10;
-console.log(guests);
+// restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
+
+// const guestCorrect = restaurant.numGuests ?? 10;
+
+/////////////Logical assignment operators
