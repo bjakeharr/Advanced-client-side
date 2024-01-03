@@ -12,13 +12,23 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  order: function(starterIndex, mainIndex) {
-    return[this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function ({starterIndex = 1, mainIndex = 0, time=`20:00`  , address}) {
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = `20:00`,
+    address,
+  }) {
     console.log(
-    `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}.`
     );
   },
 
@@ -76,41 +86,86 @@ const restaurant = {
 ////////////////destructuring objects//////////////////
 //destructuring objects uses {}
 
-const {name, openingHours, categories} = restaurant;
-console.log(name, openingHours, categories);
+// const {name, openingHours, categories} = restaurant;
+// console.log(name, openingHours, categories);
 
-//can change names of object pieces by using the colon : then renaming them in the destructuring process
-const {name: restaurantName, openingHours: hours, categories:tags} = restaurant;
-console.log(restaurantName,hours,categories);
+// //can change names of object pieces by using the colon : then renaming them in the destructuring process
+// const {name: restaurantName, openingHours: hours, categories:tags} = restaurant;
+// console.log(restaurantName,hours,categories);
 
-//setting default values in case values arent present
-const {menu = [],starterMenu: starters= []} = restaurant;
-console.log(menu,starters);
+// //setting default values in case values arent present
+// const {menu = [],starterMenu: starters= []} = restaurant;
+// console.log(menu,starters);
 
-//mutating variables
-let a =111;
-let b = 999;
-const obj = {a:23,b:7,c:14};
+// //mutating variables
+// let a =111;
+// let b = 999;
+// const obj = {a:23,b:7,c:14};
 
-//opening a code line with just curly braces {} will result in a syntax error. wrap in parentheses to avoid that ()
-({a,b} = obj);
+// //opening a code line with just curly braces {} will result in a syntax error. wrap in parentheses to avoid that ()
+// ({a,b} = obj);
 
-console.log(a,b);
+// console.log(a,b);
 
-//nested objects
-const {fri: {open, close}} = openingHours;
-console.log(open,close);
+// //nested objects
+// const {fri: {open, close}} = openingHours;
+// console.log(open,close);
 
-//destructuring while calling within a function
-// you can pass an object as an argument into a funciton call names just need to be the same when passed as arguments and predefined arguments when defining the function.
-restaurant.orderDelivery({
-  time:`22:30`,
-  address: `Via del Sole,21`,
-  mainIndex: 2,
-  starterIndex: 2,
-});
+// //destructuring while calling within a function
+// // you can pass an object as an argument into a function call names just need to be the same when passed as arguments and predefined arguments when defining the function.
+// restaurant.orderDelivery({
+//   time:`22:30`,
+//   address: `Via del Sole,21`,
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
 
-restaurant.orderDelivery({
-  address: `Via del Sole,21`,
-  starterIndex: 1,
-});
+// restaurant.orderDelivery({
+//   address: `Via del Sole,21`,
+//   starterIndex: 1,
+// });
+
+///////////The spread operator////////////
+
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+//The spread operator ... is used when multiple elements from an array need to be used at once.
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+console.log(...newArr);
+
+const newMenu = [...restaurant.mainMenu, 'gnocci'];
+console.log(newMenu);
+
+//copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+//join 2 arrays
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+//iterables are arrays, strings, maps, sets. NOT objects
+const str = 'Jonas';
+const letters = [...str, ' ', 'S.'];
+console.log(letters);
+console.log(...str);
+//the spread operator cannot be used within a template literal ${} in a string. Designed for single values.
+
+//real world example
+// const ingredients = [
+//   prompt(`Let\'s make Pasta! Ingredient 1?`),
+//   prompt(`Ingredient 2?`),
+//   prompt(`Ingredient 3?`),
+// ];
+
+// restaurant.orderPasta(...ingredients);
+
+//Objects
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Guiseppe' };
+console.log(newRestaurant);
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
