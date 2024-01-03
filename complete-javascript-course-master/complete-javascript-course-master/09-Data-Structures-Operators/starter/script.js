@@ -215,31 +215,36 @@ const restaurant = {
 /////////Short circuiting && and || ////////////////////
 
 //Logical operators can use and return any data type
-console.log(3 || 'Jonas');
+// console.log(3 || 'Jonas');
 
-//short circuiting means that when the first operant is a truthy value, it will immediately return
+// //short circuiting means that when the first operant is a truthy value, it will immediately return
 
-console.log('' || 'Jonas');
-console.log(true || 0);
-console.log(undefined || null);
+// console.log('' || 'Jonas');
+// console.log(true || 0);
+// console.log(undefined || null);
 
-//short circuits to the first 'truthy' value
-console.log(undefined || 0 || '' || 'hello' || 23 || null);
+// //short circuits to the first 'truthy' value
+// console.log(undefined || 0 || '' || 'hello' || 23 || null);
 
-restaurant.numGuests = 23;
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
+// restaurant.numGuests = 23;
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
 
-const guests2 = restaurant.numGuests || 10;
-console.log(guests2);
+// const guests2 = restaurant.numGuests || 10;
+// console.log(guests2);
 
-//the && operator short circuits to the first 'falsy value'
-console.log(0 && 'Jonas');
-console.log(7 && 'Jonas');
-console.log('hello' && 23 && null && 'jonas');
+// //the && operator short circuits to the first 'falsy value'
+// console.log(0 && 'Jonas');
+// console.log(7 && 'Jonas');
+// console.log('hello' && 23 && null && 'jonas');
 
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushrooms', 'spinach');
-}
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach');
+// }
 
-restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+// restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+//////Nullish operator//////////////
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
