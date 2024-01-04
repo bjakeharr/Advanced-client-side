@@ -65,8 +65,8 @@ const restaurant = {
 // console.log(openStr);
 
 //looping property Values
-// const values = Object.values(openingHours);
-// console.log(values);
+const values = Object.values(openingHours);
+console.log(values);
 
 //entire object
 // const entries = Object.entries(openingHours);
@@ -419,3 +419,53 @@ const rest2 = {
 
 //will show the items as individual arrays within a larger array that contains the index number within the large array as well as their value.
 // console.log([...menu.entries()]);
+
+//coding challenge 2
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+//1
+console.log(Object.entries(game.scored));
+const entries = Object.entries(game.scored);
+
+for (const [i, player] of entries) {
+  console.log(`goal number ${Number(i) + 1} was scored by ${player}`);
+}
