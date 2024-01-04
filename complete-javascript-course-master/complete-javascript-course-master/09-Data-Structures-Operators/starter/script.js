@@ -51,6 +51,31 @@ const restaurant = {
   openingHours,
 };
 
+//optional chaining
+// if (restaurant.openingHours && restaurant.openingHours.mon)
+//   console.log(restaurant.openingHours.mon.open);
+
+//with optional chaining. Checks whether the data up to '?' exists and if it doesn't, it sends back an undefined instead of an error.
+// console.log(restaurant.openingHours.mon?.open);
+
+//example with chaining
+// const days = ['mon', 'tues', 'wed', 'thurs', 'fri', 'sat', 'sun'];
+
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`on ${day}, we open at ${open}`);
+// }
+
+//optional chaining with methods
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+//optional chaining on arrays
+// const users = [{ name: 'jonas', email: 'hello@jonas.io' }];
+// const users = [];
+
+// console.log(users[0]?.name ?? 'user array empty');
+
 const rest1 = {
   name: 'Capri',
   numGuests: 0,
