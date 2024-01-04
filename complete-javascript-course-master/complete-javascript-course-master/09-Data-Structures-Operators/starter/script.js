@@ -327,17 +327,17 @@ console.log(players1);
 console.log(players2);
 
 //2.
-let [gk, ...fieldplayers] = players1;
+let [gk, ...fieldPlayers] = players1;
 console.log(gk);
-console.log(fieldplayers);
+console.log(fieldPlayers);
 
 //3.
-const [...allPlayers] = [...players1, ...players2];
+const allPlayers = [...players1, ...players2];
 console.log(allPlayers);
 
 //4.
-let [...playersFinal] = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
-console.log(playersFinal);
+let players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(players1Final);
 
 //5.
 const { team1, x: draw, team2 } = game.odds;
@@ -348,15 +348,12 @@ console.log(team2);
 //6.
 
 const printGoals = function (...playerNames) {
-  for (let i = 0; i < playerNames.length; i++) {
-    console.log(playerNames[i]);
-  }
+  console.log(`${playerNames.length} goals were scored`);
 };
 
 printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
-printGoals(game.scored);
+printGoals(...game.scored);
 
 //7.
-let team1Win = game.odds.team2 > game.odds.team1;
-let team2Win = game.odds.team1 > game.odds.team2;
-console.log(team1Win && team2Win);
+team1 < team2 && console.log(`Team 1 is more likely to win`);
+team2 < team1 && console.log(`Team 2 is more likely to win`);
