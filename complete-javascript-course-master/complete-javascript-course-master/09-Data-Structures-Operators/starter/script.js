@@ -421,66 +421,106 @@ const rest2 = {
 // console.log([...menu.entries()]);
 
 //coding challenge 2
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-//1
+// //1
 
-for (const [i, player] of game.scored.entries()) {
-  console.log(`goal number ${Number(i) + 1} was scored by ${player}`);
-}
+// for (const [i, player] of game.scored.entries()) {
+//   console.log(`goal number ${Number(i) + 1} was scored by ${player}`);
+// }
 
-//2
-const odds = Object.values(game.odds);
-let average = 0;
-for (const odd of odds) {
-  average += odd;
-}
-console.log(average / odds.length);
+// //2
+// const odds = Object.values(game.odds);
+// let average = 0;
+// for (const odd of odds) {
+//   average += odd;
+// }
+// console.log(average / odds.length);
 
-//3
-for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
-  console.log(`Odds of ${teamStr} ${odd}`);
-}
+// //3
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+//   console.log(`Odds of ${teamStr} ${odd}`);
+// }
 // Odd of victory Bayern Munich: 1.33
 // Odd of draw: 3.25
 // Odd of victory Borrussia Dortmund: 6.5
+
+// sets ---------------------
+
+// sets are defined as a selection of 'unique values. cannot have copies any duplicates are eliminated.
+
+// const ordersSet = new Set([
+//   'Pasta',
+//   'Pizza',
+//   'Pizza',
+//   'Risotto',
+//   'Pasta',
+//   'Pizza',
+// ]);
+// console.log(ordersSet);
+
+// //checks length of set
+// console.log(ordersSet.size);
+
+// //checks if a search term is located in the set
+// console.log(ordersSet.has('Bread'));
+
+// //adds new item to the set
+// ordersSet.add('Garlic Bread');
+
+// //deletes set item
+// ordersSet.delete('Risotto');
+
+// //deletes entire set
+// // ordersSet.clear();
+
+// //cant extract values from a set. better to use an array for storing
+
+// //sets can be looped through since they are an iterable
+// for (const order of ordersSet) console.log(order);
+
+// //use case of sets. typically used to remove duplicates
+
+// const staff = ['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter'];
+// const staffUnique = [...new Set(staff)]; //can use the spread operator and [] to generate another array.
+// console.log(staffUnique);
