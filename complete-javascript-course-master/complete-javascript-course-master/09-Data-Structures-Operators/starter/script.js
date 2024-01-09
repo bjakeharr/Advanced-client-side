@@ -524,3 +524,49 @@ const rest2 = {
 // const staff = ['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter'];
 // const staffUnique = [...new Set(staff)]; //can use the spread operator and [] to generate another array.
 // console.log(staffUnique);
+
+//--------maps fundamentals
+
+//A map is a data structure that can attach values to keys
+// map keys cna be of any type (string, numbers,obj etc)
+
+// const rest = new Map();
+// rest.set('name', 'Classico Italiano');
+// rest.set(1, 'Firenze, Italy');
+// console.log(rest.set(2, 'Lisbon, Portugal'));
+
+//when defining keys for a map they can me chained in one command. just use .set
+// rest
+//   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+//   .set('open', 11)
+//   .set('close', 23)
+//   .set(true, 'we are open')
+//   .set(false, 'we are closed');
+
+//retrieving values from a map uses the 'get' command paired with the desired key.
+// console.log(rest.get('name'));
+// console.log(rest.get(true));
+// console.log(rest.get(1));
+
+// by running the calculation and comparing, the result will be returned as the true response. If the true response were not enabled, the result would be undefined.
+
+// one of the main strengths of maps is being able to key boolean values.
+// const time = 21;
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+//can check if a map has a key defined by using 'has'
+// console.log(rest.has('categories'));
+
+//keys can be removed from maps using mapName.delete(key)
+// rest.delete(2);
+
+//the .clear() method can be used to remove all elements from a map.
+
+//can use .size to show how many keys are contained in a map
+// console.log(rest.size);
+
+//arrays can be used as keys but need ot be attached to a defined variable in order to be called.\
+// const arr = [1, 2];
+// rest.set(arr, 'test');
+
+// console.log(rest.get(arr));
