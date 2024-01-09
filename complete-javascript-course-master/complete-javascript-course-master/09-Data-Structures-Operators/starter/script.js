@@ -570,3 +570,35 @@ const rest2 = {
 // rest.set(arr, 'test');
 
 // console.log(rest.get(arr));
+
+//------------maps iteration
+
+// you cna populate a new Map by using an array within an array
+// const question = new Map([
+//   ['question', 'what is the best programming language in the world?'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'JavaScript'],
+//   ['correct', 3],
+//   [true, 'correct'],
+//   [false, 'try again'],
+// ]);
+
+//this method is the same format as using the Object.entries method
+//you can use this to convert objects to maps.
+
+// const hoursMap = new Map(Object.entries(openingHours)); //this converts the openinghours object to a map.
+
+//Maps are iterabale
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+// }
+
+// const answer = 3;
+// console.log(answer, typeof answer);
+
+// console.log(question.get(answer === question.get('correct')));
+
+//converting map to an array
+// console.log([...question]);
