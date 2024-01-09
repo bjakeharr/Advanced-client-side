@@ -589,7 +589,7 @@ const rest2 = {
 
 // const hoursMap = new Map(Object.entries(openingHours)); //this converts the openinghours object to a map.
 
-//Maps are iterabale
+//Maps are iterable
 // console.log(question.get('question'));
 // for (const [key, value] of question) {
 //   if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
@@ -602,3 +602,78 @@ const rest2 = {
 
 //converting map to an array
 // console.log([...question]);
+
+//coding  challenge 3
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
+
+// const gameEvents = new Map([
+//   [17, '⚽ GOAL'],
+//   [36, '� Substitution'],
+//   [47, '⚽ GOAL'],
+//   [61, '� Substitution'],
+//   [64, '� Yellow card'],
+//   [69, '� Red card'],
+//   [70, '� Substitution'],
+//   [72, '� Substitution'],
+//   [76, '⚽ GOAL'],
+//   [80, '⚽ GOAL'],
+//   [92, '� Yellow card'],
+// ]);
+
+//1
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
+
+//2
+// gameEvents.delete(64);
+// console.log(gameEvents);
+
+//3
+// console.log(
+//   `An event happened, on average every ${90 / gameEvents.size} minutes`
+// );
+
+//4
+// for (const [minute, event] of gameEvents) {
+//   const half = minute <= 45 ? `First` : `Second`;
+//   console.log(`[${half} HALF] ${minute} ${event}`);
+// }
