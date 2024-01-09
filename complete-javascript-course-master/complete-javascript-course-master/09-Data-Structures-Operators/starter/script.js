@@ -720,3 +720,46 @@ const plane = 'A320';
 // checkMiddleSeat('11B');
 // checkMiddleSeat('23C');
 // checkMiddleSeat('3E');
+
+//................working with strings part 2
+
+//switching the case
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+//fixing name capitalization
+// const passenger = 'jOnAs';
+// const passengerLower = passenger.toLowerCase();
+// const passengerFixed =
+//   passengerLower[0].toUpperCase() + passengerLower.slice(1);
+// console.log(passengerFixed);
+
+//defining correction function challenge
+const passSpellCheck = function (passenger) {
+  const passengerLower = passenger.toLowerCase();
+  const passengerFixed =
+    passengerLower[0].toUpperCase() + passengerLower.slice(1);
+  console.log(passengerFixed);
+};
+passSpellCheck('jAKoB');
+
+//comparing email
+const email = 'hello@jonas.io';
+const loginEmail = '  Hello@Jonas.Io \n';
+
+const lowerEmail = loginEmail.toLowerCase();
+//.trim() removes whitespace from both ends of a string. has a subcommand for beginning and end.
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+
+//.....Replacing strings (the replace method is case sensitive)
+const priceGB = '288,97';
+const priceUS = priceGB.replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'All passengers please report to boarding door 23. Boarding door 23!';
+console.log(announcement.replaceAll('door', 'gate'));
