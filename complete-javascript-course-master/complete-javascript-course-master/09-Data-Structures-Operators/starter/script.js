@@ -677,3 +677,46 @@ const rest2 = {
 //   const half = minute <= 45 ? `First` : `Second`;
 //   console.log(`[${half} HALF] ${minute} ${event}`);
 // }
+
+//........working with strings part 1
+const airline = 'TAP air Portugal';
+const plane = 'A320';
+
+//index numbers on strings correspond to the character at the given index
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+
+//the length property can tell you the total character number ina given string (this includes spaces)
+
+// console.log(airline.length);
+
+//can also use indexof on strings
+// console.log(airline.indexOf('r'));
+//lastindexof will find last occurence of a given character or word
+// console.log(airline.lastIndexOf('r'));
+// console.log(airline.indexOf('Portugal'));
+
+//--------slice method
+//strings cannot be mutated. If any changes need to happen, they need ot be assigned to a new variable.
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
+
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+//negative values will pull backwards on a string with the slice method
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1, -1));
+
+// const checkMiddleSeat = function (seat) {
+//B and E are middle seats
+//   const s = seat.slice(-1);
+//   if (s === 'B' || s === 'E') {
+//     console.log('This is a middle seat');
+//   } else console.log('This is not a middle seat');
+// };
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
