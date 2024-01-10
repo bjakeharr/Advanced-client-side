@@ -679,8 +679,8 @@ const rest2 = {
 // }
 
 //........working with strings part 1
-const airline = 'TAP air Portugal';
-const plane = 'A320';
+// const airline = 'TAP air Portugal';
+// const plane = 'A320';
 
 //index numbers on strings correspond to the character at the given index
 // console.log(plane[0]);
@@ -724,8 +724,8 @@ const plane = 'A320';
 //................working with strings part 2
 
 //switching the case
-console.log(airline.toLowerCase());
-console.log(airline.toUpperCase());
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
 
 //fixing name capitalization
 // const passenger = 'jOnAs';
@@ -735,31 +735,50 @@ console.log(airline.toUpperCase());
 // console.log(passengerFixed);
 
 //defining correction function challenge
-const passSpellCheck = function (passenger) {
-  const passengerLower = passenger.toLowerCase();
-  const passengerFixed =
-    passengerLower[0].toUpperCase() + passengerLower.slice(1);
-  console.log(passengerFixed);
-};
-passSpellCheck('jAKoB');
+// const passSpellCheck = function (passenger) {
+//   const passengerLower = passenger.toLowerCase();
+//   const passengerFixed =
+//     passengerLower[0].toUpperCase() + passengerLower.slice(1);
+//   console.log(passengerFixed);
+// };
+// passSpellCheck('jAKoB');
 
 //comparing email
-const email = 'hello@jonas.io';
-const loginEmail = '  Hello@Jonas.Io \n';
+// const email = 'hello@jonas.io';
+// const loginEmail = '  Hello@Jonas.Io \n';
 
-const lowerEmail = loginEmail.toLowerCase();
+// const lowerEmail = loginEmail.toLowerCase();
 //.trim() removes whitespace from both ends of a string. has a subcommand for beginning and end.
-const trimmedEmail = lowerEmail.trim();
-console.log(trimmedEmail);
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);
 
-const normalizedEmail = loginEmail.toLowerCase().trim();
-console.log(normalizedEmail);
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail);
 
 //.....Replacing strings (the replace method is case sensitive)
-const priceGB = '288,97';
-const priceUS = priceGB.replace(',', '.');
-console.log(priceUS);
+// const priceGB = '288,97';
+// const priceUS = priceGB.replace(',', '.');
+// console.log(priceUS);
 
-const announcement =
-  'All passengers please report to boarding door 23. Boarding door 23!';
-console.log(announcement.replaceAll('door', 'gate'));
+// const announcement =
+//   'All passengers please report to boarding door 23. Boarding door 23!';
+// console.log(announcement.replaceAll('door', 'gate'));
+
+//booleans
+// const plane = 'Airbus A320neo';
+// console.log(plane.includes('A320'));
+
+// if (plane.startsWith('airbus') && plane.endsWith('neo')) {
+//   console.log('Part of the new airbus family');
+// }
+
+//practice exercise
+// const checkBaggage = function (items) {
+//   const baggage = items.toLowerCase();
+//   if (baggage.includes('knife') || baggage.includes('gun')) {
+//     console.log('No weapons on a plane Rambo');
+//   } else console.log('Enjoy your flight');
+// };
+// checkBaggage('I have a laptop, some Food, and a pocket Knife');
+// checkBaggage('Socks and camera');
+// checkBaggage('Got some snacks and a gun for protection');
