@@ -784,3 +784,92 @@ const rest2 = {
 // checkBaggage('Got some snacks and a gun for protection');
 
 //.........Working with strings part 3
+
+//split will create an array that separates a string at the given trigger character
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Jonas Schmedtmann'.split(' '));
+
+// const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+
+//join cna put strings together
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+// console.log(newName);
+
+// const capitalizeName = function (name) {
+//   const names = name.split(' ');
+//   const arr = [];
+//   for (const n of names) {
+//     arr.push(n[0].toUpperCase() + n.slice(1));
+//   }
+//   console.log(arr.join(' '));
+// };
+// const passenger = 'jessica ann smith davis';
+
+// capitalizeName(passenger);
+
+//padding a string
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(25, '+'));
+
+//real world example
+
+// const maskCreditCard = function (number) {
+//   const str = number + '';
+//   const masked = str.slice(-4).padStart(str.length, '*');
+//   return masked;
+// };
+// console.log(maskCreditCard(1234567812345678));
+
+//repeat method
+// const message2 = 'Bad weather... All Departures Delayed...';
+// console.log(message2.repeat(5));
+
+// const planesInLine = function (n) {
+//   console.log(`There are ${n} planes in line ${'*'.repeat(n)}`);
+// };
+
+// planesInLine(5);
+// planesInLine(3);
+// planesInLine(12);
+
+//coding challenge number 4
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+const toCamelCase = function () {
+  const text = document.querySelector('textarea').value;
+
+  //enabling empty string for checks to be added in the loop
+  let checks = '';
+
+  //splitting the input field by the 'enter keystrokes
+  const arr = text.split('\n');
+
+  //initializing forof loop
+  for (const word of arr) {
+    //progressively adding checks through the loop
+    checks += '+';
+
+    //splitting the words by the underscore
+    const [firstWord, secondWord] = word.toLowerCase().trim().split('_');
+
+    //assigning variable to, and correcting first letter of second word
+    const secondFixed = secondWord.replace(
+      secondWord[0],
+      secondWord[0].toUpperCase()
+    );
+
+    //putting the two words back together then joining the string to the progressively longer checks string
+    const fixedCase = [firstWord, secondFixed].join('');
+    console.log([fixedCase.padEnd(20), checks].join(' '));
+  }
+};
+
+document.querySelector('button').addEventListener('click', toCamelCase);
+// const test = `underscore_case
+// first_name
+// Some_Variable
+//  calculate_AGE
+// delayed_departure`;
+// toCamelCase(test);
