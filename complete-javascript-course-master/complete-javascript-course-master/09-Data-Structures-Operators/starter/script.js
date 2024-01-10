@@ -782,3 +782,5 @@ const rest2 = {
 // checkBaggage('I have a laptop, some Food, and a pocket Knife');
 // checkBaggage('Socks and camera');
 // checkBaggage('Got some snacks and a gun for protection');
+
+//.........Working with strings part 3
