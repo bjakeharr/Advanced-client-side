@@ -95,3 +95,19 @@
 // document.body.addEventListener('click', high5);
 
 // ['jonas', 'martha', 'adam'].forEach(high5);
+
+//----------------Functions that return functions----------
+
+// const greet = function (greeting) {
+//   return function (name) {
+//     console.log(`${greeting} ${name}`);
+//   };
+// };
+
+// const greeterHey = greet('hey');
+// greeterHey('Jonas');
+// greeterHey('Steven');
+
+//arrow challenge
+// const arrowGreet = greeting => name => console.log(`${greeting} ${name}`);
+// arrowGreet('Hello')('Jake');
