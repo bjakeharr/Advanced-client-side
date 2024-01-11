@@ -66,3 +66,32 @@
 //example
 //const greet = () => console.log('Hey Jonas');
 //btnclose.//this is the higher order function // addEventListener('click',//this is the callback funcitongreet);
+
+//--------------Functions accepting callback functions------------
+
+// const oneWord = function (str) {
+//   return str.replace(/ /g, '').toLowerCase();
+// };
+
+// const upperFirstWord = function (str) {
+//   const [first, ...others] = str.split(' ');
+//   return [first.toUpperCase(), ...others].join(' ');
+// };
+
+//this is a higher order function
+// const transformer = function (str, fn) {
+//   console.log(`Original string ${str}`);
+//   console.log(`Transformed string: ${fn(str)}`);
+//   console.log(`transformed by ${fn.name}`);
+// };
+// transformer('Javascript is the best', upperFirstWord);
+
+// transformer('Javascript is the best', oneWord);
+
+// const high5 = function () {
+//   console.log('hello');
+// };
+
+// document.body.addEventListener('click', high5);
+
+// ['jonas', 'martha', 'adam'].forEach(high5);
