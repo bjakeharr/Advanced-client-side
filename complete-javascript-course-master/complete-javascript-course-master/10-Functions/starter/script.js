@@ -55,3 +55,14 @@
 
 // newPassport(jonas);
 // checkIn(flight, jonas);
+
+//----------- First class and higher order functions-----------
+
+//in JS functions are treated as values
+//functions are just another type of object
+
+//A higher order function is a function that receives a function as an argument, that returns a new function, or both.
+
+//example
+//const greet = () => console.log('Hey Jonas');
+//btnclose.//this is the higher order function // addEventListener('click',//this is the callback funcitongreet);
