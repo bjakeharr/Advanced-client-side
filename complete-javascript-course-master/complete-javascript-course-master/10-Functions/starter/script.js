@@ -114,29 +114,29 @@
 
 //----------The call and apply methods----------
 
-// const lufthansa = {
-//   airline: 'Lufthansa',
-//   iataCode: 'LH',
-//   bookings: [],
-//   book(flightNum, name) {
-//     console.log(
-//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
-//     );
-//     this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
-//   },
-// };
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
 
-// lufthansa.book(239, 'Jonas');
-// lufthansa.book(635, 'John Smith');
-// console.log(lufthansa);
+lufthansa.book(239, 'Jonas');
+lufthansa.book(635, 'John Smith');
+console.log(lufthansa);
 
-// const eurowings = {
-//   airline: 'Eurowings',
-//   iataCode: 'EW',
-//   bookings: [],
-// };
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
 
-// const book = lufthansa.book;
+const book = lufthansa.book;
 
 // does not work book(23, 'Sarah Williams');
 
@@ -147,11 +147,11 @@
 // book.call(lufthansa, 239, 'Mary Cooper');
 // console.log(lufthansa);
 
-// const swiss = {
-//   airline: 'Swiss Air Lines',
-//   iataCode: 'LX',
-//   bookings: [],
-// };
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
 
 // book.call(swiss, 583, 'Mary Cooper');
 // console.log(swiss);
@@ -162,3 +162,39 @@
 // book.apply(swiss, flightData);
 
 // book.call(swiss, ...flightData);
+
+//----------The bind method---------
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(23, 'Steven Williams');
+
+//bind allows you to set certain arguments for functions in stone.
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Jonas Schmedtmann');
+bookEW23('Martha Cooper');
+
+//Bind with event listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+//partial application
+const addTax = (rate, value) => value + value * rate;
+
+console.log(addTax(0.1, 200));
+
+//if the 'this' keyword is not applicable, skip it in bind by using 'null'
+const addVAT = addTax.bind(null, 0.23);
+console.log(addVAT(200));
+
+const addTaxArrow = rate => value => value + value * rate;
+const addTaxArrow2 = addTaxArrow(0.23);
+console.log(addTaxArrow2(300));
