@@ -206,8 +206,28 @@ const poll = {
   answers: new Array(4).fill(0),
 
   // challenge 1
+
   registerNewAnswer: function () {
-    prompt(`${this.question} ${this.options} please write option number`);
+    let answer = Number(
+      prompt(
+        `${this.question}\n ${this.options.join(
+          '\n'
+        )} \nplease write option number`
+      )
+    );
+    typeof answer === 'number' && answer < this.answers.length
+      ? (poll.answers[answer] = poll.answers[answer]++)
+      : alert('please provide a valid number');
+    this.displayResults();
+  },
+  displayResults: function () {
+    let answerStr = `The results stand as follows, \n`;
+    for (const [i, option] of this.options) {
+      answerStr += `${this.options[i].slice(2)} has a total of ${
+        this.answers[i]
+      } points! \n`;
+    }
+    console.log(answerStr);
   },
 };
 document
