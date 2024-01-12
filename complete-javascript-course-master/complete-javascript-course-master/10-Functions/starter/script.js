@@ -233,3 +233,15 @@ const poll = {
 document
   .querySelector('.poll')
   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+//-----------immediately invoked function expressions
+
+// const runOnce = function () {
+//   console.log(`This will never run again`);
+// };
+// runOnce();
+
+// wrap the funciton in parentheses then immediately call it by putting the call outside (function ex (){})()
+// (function () {
+//   console.log(`This will never run again`);
+// })();
