@@ -65,12 +65,6 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
@@ -138,17 +132,39 @@ const currencies = new Map([
 //------- the for each method
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-for (const [i, movement] of movements.entries()) {
-  movement > 0
-    ? console.log(`Movement ${i + 1}: You deposited ${movement}`)
-    : console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
-}
-
+// for (const [i, movement] of movements.entries()) {
+//   movement > 0
+//     ? console.log(`Movement ${i + 1}: You deposited ${movement}`)
+//     : console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+// }
 
 //foreach passes through the array arguments in this order (element, index, and the whole array)
-console.log('FOREACH BEGINS HERE');
-movements.forEach(function (movement, index, array) {
-  movement > 0
-    ? console.log(`Movement ${index + 1} You deposited ${movement}`)
-    : console.log(`Movement ${index + 1} You withdrew ${Math.abs(movement)}`);
+// console.log('FOREACH BEGINS HERE');
+// movements.forEach(function (movement, index, array) {
+//   movement > 0
+//     ? console.log(`Movement ${index + 1} You deposited ${movement}`)
+//     : console.log(`Movement ${index + 1} You withdrew ${Math.abs(movement)}`);
+// });
+
+//foreach loops cannot be broken out of with break or continue.
+
+//-----------foreach with maps and sets
+
+//map
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+//set
+const currenciesUnique = new Set(['USD', 'GBP', 'EUR', 'EUR', 'USD']);
+console.log(currenciesUnique);
+//when used on sets, the index value is the same as the value in a foreach
+currenciesUnique.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
 });
