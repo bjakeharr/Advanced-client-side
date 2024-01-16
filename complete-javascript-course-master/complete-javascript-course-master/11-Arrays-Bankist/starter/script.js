@@ -185,3 +185,23 @@ displayMovements(account1.movements);
 // currenciesUnique.forEach(function (value, key, map) {
 //   console.log(`${key}: ${value}`);
 // });
+
+//------coding challenge 1
+
+// const checkDogs = function (dogsJulia, dogsKate) {
+//   let str = ``;
+//   const dogsJuliaFixed = dogsJulia.slice(1, -2);
+//   const dogsArr = dogsJuliaFixed.concat(dogsKate);
+//   dogsArr.forEach(function (val, i, arr) {
+//     val > 2
+//       ? (str = `Dog number ${i + 1} is an adult, and is ${val} years old`)
+//       : (str = `Dog number ${i + 1} is still a puppy`);
+//     console.log(str);
+//   });
+// };
+
+//data test 1
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+// console.log(`END TEST DATA 1`);
+//data test 2
+// checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
