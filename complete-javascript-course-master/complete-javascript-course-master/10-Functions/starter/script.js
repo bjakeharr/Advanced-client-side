@@ -241,7 +241,24 @@ document
 // };
 // runOnce();
 
-// wrap the funciton in parentheses then immediately call it by putting the call outside (function ex (){})()
+// wrap the function in parentheses then immediately call it by putting the call outside (function ex (){})()
 // (function () {
 //   console.log(`This will never run again`);
 // })();
+
+//----------Closures--------
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+// a function always has access to the variables contained within the execution context in which it was first created. THis is what makes closures possible.
