@@ -133,4 +133,4 @@ console.log(arr.slice(-1)[0]);
 console.log(arr.at(-1));
 
 //also works on strings
-console.log('jonas'.at(0));
+// console.log('jonas'.at(0));
