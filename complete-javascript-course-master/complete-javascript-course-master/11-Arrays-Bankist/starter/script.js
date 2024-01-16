@@ -71,7 +71,7 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 //-------- simple array method
@@ -123,14 +123,32 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 //----------the new at method
 //utilizes the same syntax as index numbers except called upon by varhere.at(indexhere)
-const arr = [23, 11, 64];
-console.log(arr[0]);
-console.log(arr.at(0));
+// const arr = [23, 11, 64];
+// console.log(arr[0]);
+// console.log(arr.at(0));
 
 //accessing the last element of an array
-console.log(arr[arr.length - 1]);
-console.log(arr.slice(-1)[0]);
-console.log(arr.at(-1));
+// console.log(arr[arr.length - 1]);
+// console.log(arr.slice(-1)[0]);
+// console.log(arr.at(-1));
 
 //also works on strings
 // console.log('jonas'.at(0));
+
+//------- the for each method
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+for (const [i, movement] of movements.entries()) {
+  movement > 0
+    ? console.log(`Movement ${i + 1}: You deposited ${movement}`)
+    : console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+}
+
+
+//foreach passes through the array arguments in this order (element, index, and the whole array)
+console.log('FOREACH BEGINS HERE');
+movements.forEach(function (movement, index, array) {
+  movement > 0
+    ? console.log(`Movement ${index + 1} You deposited ${movement}`)
+    : console.log(`Movement ${index + 1} You withdrew ${Math.abs(movement)}`);
+});
