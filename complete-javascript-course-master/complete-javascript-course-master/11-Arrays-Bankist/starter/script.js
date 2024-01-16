@@ -205,3 +205,11 @@ displayMovements(account1.movements);
 // console.log(`END TEST DATA 1`);
 //data test 2
 // checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+
+//--------Map , filter, and reduce
+
+//map loops through an array and applies a request to each element in the array and generates a new array with the operation applied
+
+//filter will create a new array that pass the listed requirement
+
+//reduce will boil down all the elements of an array to a single value
