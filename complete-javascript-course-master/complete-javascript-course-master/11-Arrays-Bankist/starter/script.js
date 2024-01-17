@@ -79,6 +79,13 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+
+calcDisplayBalance(account1.movements);
+
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner
@@ -271,3 +278,18 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //   return mov < 0;
 // });
 // console.log(withdrawals);
+
+//---- the reduce method
+//the reduce method returns a single value instead of an array
+//syntax array.reduce(function(accumulator, current element value, index, array){function parameter goes here}, starting point of the accumulator 0 for from the beginning)
+// const balance = movements.reduce(function (acc, curr, i, arr) {
+//   return acc + curr;
+// }, 0);
+// console.log(balance);
+
+//maximum value
+// const max = movements.reduce((acc, curr) => {
+//   if (acc > curr) return acc;
+//   else return curr;
+// }, movements[0]);
+// console.log(max);
