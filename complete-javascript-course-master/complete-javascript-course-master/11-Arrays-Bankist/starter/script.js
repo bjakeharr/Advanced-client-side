@@ -78,6 +78,18 @@ const displayMovements = function (movements) {
   });
 };
 displayMovements(account1.movements);
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUsernames(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -216,29 +228,27 @@ displayMovements(account1.movements);
 
 //------- the map method
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-const eurToUsd = 1.1;
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const eurToUsd = 1.1;
 
 // const movementsUSD = movements.map(function (mov) {
 //   return mov * eurToUsd;
 // });
-const movementsUSDArrow = movements.map(mov => mov * eurToUsd);
+// const movementsUSDArrow = movements.map(mov => mov * eurToUsd);
 
-console.log(movements);
+// console.log(movements);
 // console.log(movementsUSD);
 
-const movementsUSDFor = [];
-for (const mov of movements) {
-  movementsUSDFor.push(mov * eurToUsd);
-}
+// const movementsUSDFor = [];
+// for (const mov of movements) {
+//   movementsUSDFor.push(mov * eurToUsd);
+// }
 
-console.log(movementsUSDFor);
+// console.log(movementsUSDFor);
 
-const movementsDescriptions = movements.map(
-  (mov, i, arr) =>
-    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
-      mov
-    )}`
-);
-
-console.log(movementsDescriptions);
+// const movementsDescriptions = movements.map(
+//   (mov, i, arr) =>
+//     `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+//       mov
+//     )}`
+// );
