@@ -326,12 +326,22 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
 
 //------chaining methods
-const euroToUsd = 1.1;
+// const euroToUsd = 1.1;
 
 //pipeline
-const totalInUSD = movements
-  .filter(mov => mov > 0)
-  .map(mov => mov * euroToUsd)
-  .reduce((acc, mov) => acc + mov, 0);
+// const totalInUSD = movements
+//   .filter(mov => mov > 0)
+//   .map(mov => mov * euroToUsd)
+//   .reduce((acc, mov) => acc + mov, 0);
 
-console.log(totalInUSD);
+// console.log(totalInUSD);
+
+//coding challenge 3
+// const calcAverageHumanAgeArrowChain = ages =>
+//   ages
+//     .map(age => (age <= 2 ? age * 2 : 16 + age * 4))
+//     .filter(age => age >= 18)
+//     .reduce((acc, age, i, arr) => age / arr.length + acc, 0);
+
+// console.log(calcAverageHumanAgeArrowChain([5, 2, 4, 1, 15, 8, 3]));
+// console.log(calcAverageHumanAgeArrowChain([16, 6, 10, 5, 6, 1, 4]));
