@@ -497,9 +497,30 @@ btnClose.addEventListener('click', function (e) {
 // console.log(owners.sort()); // mutates original array alphabetically
 
 //numbers
+//ascending
 // console.log(movements);
 // movements.sort((a, b) => {
 //   if (a > b) return 1;
 //   if (b > a) return -1;
 // });
 // console.log(movements);
+
+//----------more ways of creating and filling arrays
+// const x = new Array(7); // creates an array with 7 empty variables.
+// console.log(x);
+// x.fill(1); // mutates the array by filling with ones;
+// x.fill(1, 3); // can specify a begin parameter in this case index 3
+
+//array.from syntax Array.from({object with length:x}, (current element, index)=> condition to be applied through the loop)
+// const y = Array.from({ length: 7 }, () => 1);
+// console.log(y);
+// const z = Array.from({ length: 7 }, (cur, i) => i + 1);
+// console.log(z);
+
+// labelBalance.addEventListener('click', function () {
+//   const movementsUI = Array.from(
+//     document.querySelectorAll('.movements__value'),
+//     el => Number(el.textContent)
+//   );
+//   console.log(movementsUI);
+// });
