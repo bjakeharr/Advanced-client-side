@@ -450,10 +450,34 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 //every only returns true if every element in the boolean comes back as true
 
-console.log(movements.every(mov => mov > 0));
-console.log(account4.movements.every(mov => mov > 0));
+// console.log(movements.every(mov => mov > 0));
+// console.log(account4.movements.every(mov => mov > 0));
 
 //separate callback
-const deposit = mov => mov > 0;
+// const deposit = mov => mov > 0;
 
-console.log(movements.filter(deposit));
+// console.log(movements.filter(deposit));
+
+//--flat and flatmap
+//flat can turn sub arrays within arrays into a singular array one level deep by default. you can adjust this by changing the number in the parentheses
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+// console.log(arr.flat());
+
+// const arrDeep = [
+//   [[1, 2], 3],
+//   [4, [5, 6], 7, 8],
+// ];
+// console.log(arrDeep.flat(2));
+
+//flat
+// console.log(
+//   accounts
+//     .map(acc => acc.movements)
+//     .flat()
+//     .reduce((acc, mov) => acc + mov, 0)
+// );
+
+//flatmap flatmap is limited to one layer deep
+// console.log(
+//   accounts.flatMap(acc => acc.movements).reduce((acc, mov) => acc + mov, 0)
+// );
