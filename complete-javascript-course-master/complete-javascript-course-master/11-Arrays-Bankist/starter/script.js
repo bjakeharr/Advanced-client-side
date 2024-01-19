@@ -527,46 +527,67 @@ btnClose.addEventListener('click', function (e) {
 
 //--------Array methods practice
 //1
-const bankDepositSum = accounts
-  .flatMap(acc => acc.movements)
-  .filter(mov => mov > 0)
-  .reduce((acc, mov) => acc + mov, 0);
-console.log(bankDepositSum);
+// const bankDepositSum = accounts
+//   .flatMap(acc => acc.movements)
+//   .filter(mov => mov > 0)
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(bankDepositSum);
 
 //2
-const numDeposits1000 = accounts
-  .flatMap(acc => acc.movements)
-  // .filter(mov => mov >= 1000).length;
-  .reduce((acc, el, i) => (el >= 1000 ? acc + 1 : acc), 0);
-console.log(numDeposits1000);
+// const numDeposits1000 = accounts
+//   .flatMap(acc => acc.movements)
+//   // .filter(mov => mov >= 1000).length;
+//   .reduce((acc, el, i) => (el >= 1000 ? acc + 1 : acc), 0);
+// console.log(numDeposits1000);
 
 //3
-const { deposits, withdrawals } = accounts
-  .flatMap(acc => acc.movements)
-  .reduce(
-    (sums, cur) => {
-      //   cur > 0 ? (sums.deposits += cur) : (sums.withdrawals += cur);
-      //   return sums;
-      // }
-      sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
-      return sums;
-    },
-    { deposits: 0, withdrawals: 0 }
-  );
-console.log(deposits, withdrawals);
+// const { deposits, withdrawals } = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce(
+//     (sums, cur) => {
+//       //   cur > 0 ? (sums.deposits += cur) : (sums.withdrawals += cur);
+//       //   return sums;
+//       // }
+//       sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+//       return sums;
+//     },
+//     { deposits: 0, withdrawals: 0 }
+//   );
+// console.log(deposits, withdrawals);
 
 //4
-const convertTitleCase = function (title) {
-  const capitalize = str => str[0].toUpperCase() + str.slice(1);
-  const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'and', 'in', 'with'];
+// const convertTitleCase = function (title) {
+//   const capitalize = str => str[0].toUpperCase() + str.slice(1);
+//   const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'and', 'in', 'with'];
 
-  const titleCase = title
-    .toLowerCase()
-    .split(' ')
-    .map(word => (exceptions.includes(word) ? word : capitalize(word)))
-    .join(' ');
-  return capitalize(titleCase);
-};
-console.log(convertTitleCase(`this is a nice title`));
-console.log(convertTitleCase(`this is a LONG title but not too long`));
-console.log(convertTitleCase(`and here is another title with an EXAMPLE`));
+//   const titleCase = title
+//     .toLowerCase()
+//     .split(' ')
+//     .map(word => (exceptions.includes(word) ? word : capitalize(word)))
+//     .join(' ');
+//   return capitalize(titleCase);
+// };
+// console.log(convertTitleCase(`this is a nice title`));
+// console.log(convertTitleCase(`this is a LONG title but not too long`));
+// console.log(convertTitleCase(`and here is another title with an EXAMPLE`));
+
+//coding challenge 4
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+//1
+dogs.forEach((element, index, array) => {
+  const recommendedFood = element.weight ** 0.75 * 28;
+  console.log(
+    `The recommended portion size for dog ${index + 1} is ${
+      recommendedFood / 1000
+    } kgs.`
+  );
+});
+
+//2
+dogs.forEach;
