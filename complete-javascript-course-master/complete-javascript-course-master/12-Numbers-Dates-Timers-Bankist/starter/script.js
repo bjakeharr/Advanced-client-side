@@ -288,38 +288,59 @@ btnSort.addEventListener('click', function (e) {
 //---------Math and rounding
 
 //square root
-console.log(Math.sqrt(25));
-console.log(25 ** (1 / 2));
+// console.log(Math.sqrt(25));
+// console.log(25 ** (1 / 2));
 //cubic root
-console.log(8 ** (1 / 3));
+// console.log(8 ** (1 / 3));
 
 //find maximum value in an argument. **does not parse***
-console.log(Math.max(5, 18, 23, 11, 2));
-console.log(Math.max(5, 18, '23', 11, 2));
-console.log(Math.max(5, 18, '23 px', 11, 2));
+// console.log(Math.max(5, 18, 23, 11, 2));
+// console.log(Math.max(5, 18, '23', 11, 2));
+// console.log(Math.max(5, 18, '23 px', 11, 2));
 
 //min
-console.log(Math.min(5, 18, 23, 11, 2));
+// console.log(Math.min(5, 18, 23, 11, 2));
 
 //Math has some constants such as PI
-console.log(Math.PI * Number.parseFloat('10px') ** 2);
+// console.log(Math.PI * Number.parseFloat('10px') ** 2);
 
 //random numbers
-console.log(Math.trunc(Math.random() * 6 + 1));
+// console.log(Math.trunc(Math.random() * 6 + 1));
 
-const randomInt = (min, max) =>
-  Math.trunc(Math.random() * (max - min) + 1) + min;
+// const randomInt = (min, max) =>
+//   Math.trunc(Math.random() * (max - min) + 1) + min;
 
-console.log(randomInt(10, 20));
+// console.log(randomInt(10, 20));
 
 //rounding integers
-console.log(Math.trunc(23.3)); //removes all decimals
-console.log(Math.round(23.9)); //rounds to nearest integer
-console.log(Math.ceil(23.3)); //goes up to highest whole integer
-console.log(Math.floor(23.9)); //goes down to nearest whole integer
+// console.log(Math.trunc(23.3)); //removes all decimals
+// console.log(Math.round(23.9)); //rounds to nearest integer
+// console.log(Math.ceil(23.3)); //goes up to highest whole integer
+// console.log(Math.floor(23.9)); //goes down to nearest whole integer
 
 // Rounding decimals
 //toFixed will always return a string use + to convert
-console.log((2.7).toFixed(0));
-console.log((2.7).toFixed(3)); //will keep adding zeros to match the argument in to fixed.
-console.log(+(2.345).toFixed(2));
+// console.log((2.7).toFixed(0));
+// console.log((2.7).toFixed(3)); //will keep adding zeros to match the argument in to fixed.
+// console.log(+(2.345).toFixed(2));
+
+//--------The remainder operator (%)
+// console.log(5 % 2);
+// console.log(8 % 3);
+
+//the remainder operator cna check if a number is odd or even.
+// cna also check if any number is divisible by another.
+// console.log(6 % 2);
+// console.log(5 % 2);
+
+// const isEven = n => n % 2 === 0;
+// console.log(isEven(8));
+// console.log(isEven(23));
+// console.log(isEven(514));
+
+// labelBalance.addEventListener('click', function () {
+//   [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
+//     if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+//     if (i % 3 === 0) row.style.backgroundColor = 'blue';
+//   });
+// });
