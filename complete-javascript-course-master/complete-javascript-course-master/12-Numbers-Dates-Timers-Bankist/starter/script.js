@@ -94,7 +94,7 @@ const displayMovements = function (movements, sort = false) {
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-        <div class="movements__value">${mov}€</div>
+        <div class="movements__value">${mov.toFixed(2)}€</div>
       </div>
     `;
 
@@ -111,12 +111,12 @@ const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${incomes}€`;
+  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
 
   const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(out)}€`;
+  labelSumOut.textContent = `${Math.abs(out).toFixed(2)}€`;
 
   const interest = acc.movements
     .filter(mov => mov > 0)
@@ -126,7 +126,7 @@ const calcDisplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest}€`;
+  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
 };
 
 const createUsernames = function (accs) {
@@ -206,7 +206,7 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
-  const amount = +inputLoanAmount.value;
+  const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
@@ -284,3 +284,42 @@ btnSort.addEventListener('click', function (e) {
 // console.log(Number.isFinite('20'));
 // console.log(Number.isFinite(+'20X'));
 // console.log(Number.isFinite(23 / 0));
+
+//---------Math and rounding
+
+//square root
+console.log(Math.sqrt(25));
+console.log(25 ** (1 / 2));
+//cubic root
+console.log(8 ** (1 / 3));
+
+//find maximum value in an argument. **does not parse***
+console.log(Math.max(5, 18, 23, 11, 2));
+console.log(Math.max(5, 18, '23', 11, 2));
+console.log(Math.max(5, 18, '23 px', 11, 2));
+
+//min
+console.log(Math.min(5, 18, 23, 11, 2));
+
+//Math has some constants such as PI
+console.log(Math.PI * Number.parseFloat('10px') ** 2);
+
+//random numbers
+console.log(Math.trunc(Math.random() * 6 + 1));
+
+const randomInt = (min, max) =>
+  Math.trunc(Math.random() * (max - min) + 1) + min;
+
+console.log(randomInt(10, 20));
+
+//rounding integers
+console.log(Math.trunc(23.3)); //removes all decimals
+console.log(Math.round(23.9)); //rounds to nearest integer
+console.log(Math.ceil(23.3)); //goes up to highest whole integer
+console.log(Math.floor(23.9)); //goes down to nearest whole integer
+
+// Rounding decimals
+//toFixed will always return a string use + to convert
+console.log((2.7).toFixed(0));
+console.log((2.7).toFixed(3)); //will keep adding zeros to match the argument in to fixed.
+console.log(+(2.345).toFixed(2));
