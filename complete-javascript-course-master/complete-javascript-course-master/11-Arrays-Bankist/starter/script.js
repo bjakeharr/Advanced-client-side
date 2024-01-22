@@ -579,15 +579,66 @@ const dogs = [
   { weight: 32, curFood: 340, owners: ['Michael'] },
 ];
 
+let tooMuch = [];
+let tooLittle = [];
+let justRight = [];
 //1
 dogs.forEach((element, index, array) => {
-  const recommendedFood = element.weight ** 0.75 * 28;
-  console.log(
-    `The recommended portion size for dog ${index + 1} is ${
-      recommendedFood / 1000
-    } kgs.`
-  );
-});
+  element.recommendedFood = Math.trunc(element.weight ** 0.75 * 28);
 
-//2
-dogs.forEach;
+  //2
+  if (
+    element.owners.includes('Sarah') &&
+    element.curFood < element.recommendedFood
+  ) {
+    console.log(`Sarah's dog is eating too little food!`);
+  } else if (
+    element.owners.includes('Sarah') &&
+    element.curFood > element.recommendedFood
+  ) {
+    console.log(`Sarah's dog is eating too much food!`);
+  }
+
+  //3
+  if (element.curFood < element.recommendedFood) {
+    tooLittle.push(element.owners);
+    console.log(
+      `${
+        element.owners.length > 1
+          ? element.owners.join(' and  ')
+          : element.owners
+      }'s dog is eating too little!`
+    );
+  }
+  if (element.curFood > element.recommendedFood) {
+    tooMuch.push(element.owners);
+    console.log(
+      `${
+        element.owners.length > 1
+          ? element.owners.join(' and  ')
+          : element.owners
+      }'s dog is eating too much!`
+    );
+  }
+  console.log(element.curFood == element.recommendedFood);
+
+  if (
+    element.curFood < element.recommendedFood + element.recommendedFood * 0.1 &&
+    element.curFood > element.recommendedFood - element.recommendedFood * 0.1
+  ) {
+    justRight.push(element.owners);
+    console.log(
+      `${
+        element.owners.length > 1
+          ? element.owners.join(' and  ')
+          : element.owners
+      }'s dog is eating an okay amount!`
+    );
+  }
+});
+const dogCopy = dogs.slice();
+dogCopy.sort((a, b) => {
+  if (a.recommendedFood > b.recommendedFood) return 1;
+  if (b.recommendedFood > a.recommendedFood) return -1;
+});
+console.log(dogCopy);
