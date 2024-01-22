@@ -363,3 +363,16 @@ btnSort.addEventListener('click', function (e) {
 //cannot included by Number or ParseInt
 // console.log(Number('230000'));
 // console.log(Number('230_000'));
+
+//----Working with bigInt
+//maximum size integer
+// console.log(2 ** 53 - 1);
+// cant add more beyond this number
+
+// console.log(1564879516631654646516165196848146121684861n);
+// console.log(BigInt(1564879));
+
+//operations
+// console.log(10000n + 10000n);
+
+//BigInts cannot be mixed with regular ints
