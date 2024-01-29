@@ -71,3 +71,20 @@ document
   .addEventListener('click', function () {
     message.remove();
   });
+
+//========styles attributes and classes
+
+//styles
+// message.style.backgroundColor = '#37383d';
+// message.style.width = '120%';
+
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+//--attributes
+// const logo = document.querySelector('.nav__logo');
+// console.log(logo.alt);
+// console.log(logo.src);
+
+//non standard
+// console.log(logo.designer);
+// console.log(logo.getAttribute('designer'));
