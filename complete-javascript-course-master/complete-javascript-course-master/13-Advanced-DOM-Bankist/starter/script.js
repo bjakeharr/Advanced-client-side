@@ -88,3 +88,27 @@ document
 //non standard
 // console.log(logo.designer);
 // console.log(logo.getAttribute('designer'));
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+btnScrollTo.addEventListener('click', function (e) {
+  const slcoords = section1.getBoundingClientRect();
+  console.log(slcoords);
+
+  console.log(e.target.getBoundingClientRect());
+
+  //scrolling
+  // window
+  //   .scrollTo
+  //   // slcoords.left + window.pageXOffset,
+  //   // slcoords.top + window.pageYOffset
+  //   ();
+
+  // window.scrollTo({
+  //   left: slcoords.left + window.pageXOffset,
+  //   top: slcoords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
