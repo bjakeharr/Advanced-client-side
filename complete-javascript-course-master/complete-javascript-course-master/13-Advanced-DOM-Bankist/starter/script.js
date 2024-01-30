@@ -127,3 +127,17 @@ btnScrollTo.addEventListener('click', function (e) {
 
 // h1.removeEventListener('mouseenter', alertH1);
 //addEventListener is able to handle multiple functions being added.
+
+// const randomInt = (min, max) => Math.floor(Math.random() * (max - min) + min);
+// const randomColor = () =>
+//   `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+
+// document.querySelector('.nav__link').addEventListener('click', function (e) {
+//   this.style.backgroundColor = randomColor();
+// });
+// document.querySelector('.nav__links').addEventListener('click', function (e) {
+//   this.style.backgroundColor = randomColor();
+// });
+// document.querySelector('.nav').addEventListener('click', function (e) {
+//   console.log('LINK');
+// });
