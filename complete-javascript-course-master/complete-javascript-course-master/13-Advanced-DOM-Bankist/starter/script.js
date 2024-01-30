@@ -115,53 +115,82 @@ nav.addEventListener('mouseover', handleHover.bind(0.5));
 nav.addEventListener('mouseout', handleHover.bind(1));
 
 //============Sticky navigation bar
-const initialCoords = section1.getBoundingClientRect();
-window.addEventListener('scroll', function () {
-  if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+//--------using scroll event (inefficient)
+// const initialCoords = section1.getBoundingClientRect();
+// window.addEventListener('scroll', function () {
+//   if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+//   else nav.classList.remove('sticky');
+// });
+
+//----using Intersection Observer API
+// const obsCallback = function (entries, observer) {
+//   entries.forEach(entry => {
+//     console.log(entry);
+//   });
+// };
+// const obsOptions = {
+//   root: null,
+//   threshold: [0, 0.2],
+// };
+// const observer = new IntersectionObserver(obsCallback, obsOptions);
+// observer.observe(section1);
+const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect().height;
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+  if (!entry.isIntersecting) nav.classList.add('sticky');
   else nav.classList.remove('sticky');
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `${navHeight}px`,
 });
+headerObserver.observe(header);
 
 //------selecting , creating, and deleting elements
 //selecting an element
 
 //selecting via document
-console.log(document.documentElement);
-console.log(document.head);
-console.log(document.body);
+// console.log(document.documentElement);
+// console.log(document.head);
+// console.log(document.body);
 
 //selecting via class name
-const header = document.querySelector('.header');
-const allSections = document.querySelectorAll('.section');
-console.log(allSections);
+// const header = document.querySelector('.header');
+// const allSections = document.querySelectorAll('.section');
+// console.log(allSections);
 
 //selecting by Id
-document.getElementById('section--1');
+// document.getElementById('section--1');
 
 //selecting by tag or class name (old mehtods)
-const allButtons = document.getElementsByTagName('button');
+// const allButtons = document.getElementsByTagName('button');
 
-document.getElementsByClassName('btn');
+// document.getElementsByClassName('btn');
 
 //creating and inserting elements
 //.insertAdjacentHTML
 
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-message.textContent =
-  'We use cookies for improved functionality and analytics.';
-message.innerHTML =
-  'We use cookies for improved functionality and analytics. <button class = "btn btn--close--cookie">Got it</button>';
+// const message = document.createElement('div');
+// message.classList.add('cookie-message');
+// message.textContent =
+//   'We use cookies for improved functionality and analytics.';
+// message.innerHTML =
+//   'We use cookies for improved functionality and analytics. <button class = "btn btn--close--cookie">Got it</button>';
 // header.prepend(message);
-header.append(message);
+// header.append(message);
 // header.append(message.cloneNode(true));
 // header.before(message);
 
 //delete elements
-document
-  .querySelector('.btn--close--cookie')
-  .addEventListener('click', function () {
-    message.remove();
-  });
+// document
+//   .querySelector('.btn--close--cookie')
+//   .addEventListener('click', function () {
+//     message.remove();
+//   });
 
 //========styles attributes and classes
 
