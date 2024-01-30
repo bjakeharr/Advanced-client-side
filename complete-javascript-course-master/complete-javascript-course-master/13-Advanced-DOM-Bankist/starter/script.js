@@ -150,6 +150,30 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 });
 headerObserver.observe(header);
 
+//=============Fade in reveal sections
+const allSections = document.querySelectorAll('.section');
+
+//creating logic to run when observer intersects and logs entry
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  console.log(entry);
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
+
+//initializing observer loaded with function and options
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+
+//adding hidden class to sections and adding observer to watch them
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});
+
 //------selecting , creating, and deleting elements
 //selecting an element
 
