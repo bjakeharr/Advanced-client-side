@@ -123,6 +123,20 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 // });
 
 //----using Intersection Observer API
+
+//==============How it works
+// logic for observer to run: function(entries, sometimes observer){
+// [entry] = entries    the observer will make an entry when it scrolls to subject
+// you can then access aspects of the sunjecy through the entry
+// ex: entry.target.classList etc.
+// }
+
+// cosnt observerName = new IntersectionObserver (
+// functionName, { options object})
+
+//attach the observer to something
+// observername.observe(subject of study);
+
 // const obsCallback = function (entries, observer) {
 //   entries.forEach(entry => {
 //     console.log(entry);
@@ -156,7 +170,6 @@ const allSections = document.querySelectorAll('.section');
 //creating logic to run when observer intersects and logs entry
 const revealSection = function (entries, observer) {
   const [entry] = entries;
-  console.log(entry);
   if (!entry.isIntersecting) return;
   entry.target.classList.remove('section--hidden');
   observer.unobserve(entry.target);
@@ -172,6 +185,36 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 allSections.forEach(function (section) {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
+});
+
+//============adding lazy loading
+const imgTargets = document.querySelectorAll('img[data-src]');
+
+const loadImg = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+
+  //replacing lazy img src with proper img src
+  entry.target.src = `${entry.target.dataset.src}`;
+
+  entry.target.addEventListener('load', function () {
+    //removing the lazy img class
+    entry.target.classList.remove('lazy-img');
+  });
+
+  observer.unobserve(entry.target);
+};
+
+//initializing observer
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px',
+});
+
+//adding observer to all specified img
+imgTargets.forEach(function (img) {
+  imgObserver.observe(img);
 });
 
 //------selecting , creating, and deleting elements
