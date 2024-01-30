@@ -112,3 +112,18 @@ btnScrollTo.addEventListener('click', function (e) {
 
   section1.scrollIntoView({ behavior: 'smooth' });
 });
+
+// const h1 = document.querySelector('h1');
+
+// const alertH1 = function (e) {
+//   alert('addeventListener:You are reading the heading!');
+// };
+
+// h1.addEventListener('mouseenter', alertH1);
+
+// h1.onmouseenter = function (e) {
+//   alert('enetered the heading');
+// };
+
+// h1.removeEventListener('mouseenter', alertH1);
+//addEventListener is able to handle multiple functions being added.
