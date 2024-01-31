@@ -66,3 +66,33 @@ const h1 = document.querySelector('h1');
 // mustang.accelerate();
 // durango.accelerate();
 // mustang.brake();
+
+//===========ES6 classes
+
+//class expression
+// const PersonCl = class{}
+
+//class declaration
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  //Methods defined within class declaration are added to prototype
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+}
+//you can still manually add methods and variables to classes by using .prototype
+PersonCl.prototype.greeting = function () {
+  console.log(`Hello ${this.firstName}`);
+};
+
+const jessica = new PersonCl('Jessica', 1996);
+console.log(jessica);
+jessica.calcAge();
+jessica.greeting();
+
+//Classes are not hoisted (they cannot be called before being declared in the code)
+
+//Classes are only executed in STRICT mode
