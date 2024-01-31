@@ -98,6 +98,11 @@ class PersonCl {
   get fullName() {
     return this._fullName;
   }
+
+  //static method can only be called by referencing original. not inherited
+  static hey() {
+    console.log('hello');
+  }
 }
 //you can still manually add methods and variables to classes by using .prototype
 PersonCl.prototype.greeting = function () {
@@ -139,3 +144,10 @@ console.log(account.movements);
 //-------getters and setters for classes--------
 //getter in a class is called the same way as with object literals.
 console.log(jessica.age);
+
+//======Static methods
+Array.from(document.querySelectorAll('h1'));
+
+Person.hey = function () {
+  console.log('Hey');
+};

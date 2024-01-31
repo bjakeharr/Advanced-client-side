@@ -425,3 +425,6 @@ slider();
 //     el.style.transform = 'scale(0.5)';
 //   }
 // });
+
+//======Static methods
+Array.from(document.querySelectorAll('h1'));
