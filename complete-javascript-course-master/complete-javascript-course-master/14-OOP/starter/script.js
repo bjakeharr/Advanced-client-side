@@ -74,25 +74,68 @@ const h1 = document.querySelector('h1');
 
 //class declaration
 class PersonCl {
-  constructor(firstName, birthYear) {
-    this.firstName = firstName;
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
     this.birthYear = birthYear;
   }
   //Methods defined within class declaration are added to prototype
   calcAge() {
     console.log(2037 - this.birthYear);
   }
+
+  get age() {
+    return 2037 - this.birthYear;
+  }
+
+  //set a property that already exists
+  set fullName(name) {
+    if (name.includes(' ')) {
+      this._fullName = name;
+    } else {
+      alert('Please provide a full name');
+    }
+  }
+  get fullName() {
+    return this._fullName;
+  }
 }
 //you can still manually add methods and variables to classes by using .prototype
 PersonCl.prototype.greeting = function () {
-  console.log(`Hello ${this.firstName}`);
+  console.log(`Hello ${this.fullName}`);
 };
 
-const jessica = new PersonCl('Jessica', 1996);
-console.log(jessica);
-jessica.calcAge();
-jessica.greeting();
+const jessica = new PersonCl('Jessica Davis', 1996);
+// console.log(jessica);
+// jessica.calcAge();
+// jessica.greeting();
 
 //Classes are not hoisted (they cannot be called before being declared in the code)
 
 //Classes are only executed in STRICT mode
+
+//================Setters and Getters=========
+//-----getters and setters for object literals
+const account = {
+  owner: jonas,
+  movements: [100, 500, 300, 200],
+  //Put prepositon GET to turn into a getter
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+  //use prepopsition SET to turn to setter
+  set latest(mov) {
+    this.movements.push(mov);
+  },
+};
+
+//run the getter as a property instead of as a function
+console.log(account.latest);
+
+// calling setter
+//use a setter just like an expression
+account.latest = 50;
+console.log(account.movements);
+
+//-------getters and setters for classes--------
+//getter in a class is called the same way as with object literals.
+console.log(jessica.age);
