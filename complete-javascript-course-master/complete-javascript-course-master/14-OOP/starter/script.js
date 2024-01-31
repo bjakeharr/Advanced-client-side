@@ -143,11 +143,58 @@ console.log(account.movements);
 
 //-------getters and setters for classes--------
 //getter in a class is called the same way as with object literals.
-console.log(jessica.age);
+// console.log(jessica.age);
 
 //======Static methods
-Array.from(document.querySelectorAll('h1'));
+// Array.from(document.querySelectorAll('h1'));
 
-Person.hey = function () {
-  console.log('Hey');
-};
+// Person.hey = function () {
+//   console.log('Hey');
+// };
+
+//=======object.create
+// const PersonProto = {
+//   calcAge() {
+//     console.log(2037 - this.birthYear);
+//   },
+// };
+
+// const steven = Object.create(PersonProto);
+// console.log(steven);
+// steven.name = 'Steven';
+// steven.birthYear = 2002;
+// steven.calcAge();
+
+//============Coding challenge 2
+
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} is accelerating to ${this.speedUS}mp/h `);
+  }
+
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.make} is decelerating to ${this.speedUS}mp/h `);
+  }
+}
+
+const ford = new CarCl('ford', 100);
+
+ford.accelerate();
+console.log(ford.speedUS);
+ford.speedUS = 50;
+console.log(ford);
