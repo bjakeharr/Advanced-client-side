@@ -201,31 +201,31 @@ PersonCl.prototype.greeting = function () {
 
 //==============Inheritance between classes -cosntructor functions
 
-const Person = function (firstName, birthYear) {
-  this.firstName = firstName;
-  this.birthYear = birthYear;
-};
+// const Person = function (firstName, birthYear) {
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
+// };
 
-Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
-};
+// Person.prototype.calcAge = function () {
+//   console.log(2037 - this.birthYear);
+// };
 
-const Student = function (firstName, birthYear, course) {
-  Person.call(this, firstName, birthYear);
-  this.course = course;
-};
+// const Student = function (firstName, birthYear, course) {
+//   Person.call(this, firstName, birthYear);
+//   this.course = course;
+// };
 
 //Linking prototypes
-Student.prototype = Object.create(Person.prototype);
+// Student.prototype = Object.create(Person.prototype);
 
-Student.prototype.introduce = function () {
-  console.log(`Hello my name is ${this.firstName} and I study ${this.course}`);
-};
-const mike = new Student('Mike', 2020, 'Computer Science');
-mike.introduce();
+// Student.prototype.introduce = function () {
+//   console.log(`Hello my name is ${this.firstName} and I study ${this.course}`);
+// };
+// const mike = new Student('Mike', 2020, 'Computer Science');
+// mike.introduce();
 
-mike.calcAge();
-console.log(mike.__proto__);
+// mike.calcAge();
+// console.log(mike.__proto__);
 
 //========Coding challenge 3
 // const Car = function (make, speed) {
@@ -269,3 +269,16 @@ console.log(mike.__proto__);
 // console.log(prius.__proto__);
 // prius.accelerate();
 // prius.brake();
+
+//===========Inheritance between classes ES6
+
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    //super() always needs to be used first
+    super(fullName, birthYear);
+    this.course = course;
+  }
+}
+
+const martha = new StudentCl('Martha Jones', 2012, 'Computer Science');
+martha.calcAge();
