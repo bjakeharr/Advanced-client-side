@@ -272,13 +272,42 @@ PersonCl.prototype.greeting = function () {
 
 //===========Inheritance between classes ES6
 
-class StudentCl extends PersonCl {
-  constructor(fullName, birthYear, course) {
-    //super() always needs to be used first
-    super(fullName, birthYear);
-    this.course = course;
-  }
-}
+// class StudentCl extends PersonCl {
+//   constructor(fullName, birthYear, course) {
+//     //super() always needs to be used first
+//     super(fullName, birthYear);
+//     this.course = course;
+//   }
+// }
 
-const martha = new StudentCl('Martha Jones', 2012, 'Computer Science');
-martha.calcAge();
+// const martha = new StudentCl('Martha Jones', 2012, 'Computer Science');
+// martha.calcAge();
+
+//==============Inheritance Between classes using object.create
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear, course);
+  this.course = course;
+};
+
+StudentProto.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}.`);
+};
+
+const jay = Object.create(StudentProto);
+jay.init('Jay', 2010, 'Computer Science');
+jay.introduce();
+jay.calcAge();
