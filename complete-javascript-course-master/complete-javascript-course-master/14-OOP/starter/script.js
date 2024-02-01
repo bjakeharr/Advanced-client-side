@@ -313,7 +313,19 @@ PersonCl.prototype.greeting = function () {
 // jay.calcAge();
 
 //==========Another class example
+
+//Public fields
+//private fields
+//public methods
+//private methods
+
 class Account {
+  //public fields
+  locale = navigator.language;
+
+  //private fields
+  #movements = [];
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
@@ -327,15 +339,17 @@ class Account {
 
   //public interface
   getMovements() {
-    return this._movements;
+    return this.#movements;
   }
 
   deposit(val) {
-    this._movements.push(val);
+    this.#movements.push(val);
+    return this;
   }
 
   withdraw(val) {
     this.deposit(-val);
+    return this;
   }
 
   _approveLoan(val) {
@@ -346,6 +360,7 @@ class Account {
     if (this._approveLoan(val)) {
       this.deposit(val);
       console.log(`Loan approved`);
+      return this;
     }
   }
 }
@@ -358,3 +373,74 @@ console.log(acc1);
 console.log(acc1.getMovements());
 //=======Encapsulation Protected properties and Methods
 //The _ before a method signifies that this needs to be a protected method
+
+//========Private class fields and methods
+
+//===========Chaining methods
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+//adding a return this makes methods chainable
+
+//=========Coding challenge 4
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} has accelerated to ${speed} km/ph`);
+    return this;
+  }
+
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.speed} has decelerated to ${this.speed} km/ph`);
+    return this;
+  }
+}
+
+class EVCl extends CarCl {
+  #charge;
+
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
+    console.log(
+      `The ${this.make}'s battery has been charged to ${this.#charge} percent.`
+    );
+    return this;
+  }
+
+  accelerate() {
+    this.speed += 20;
+    this.#charge -= 1;
+    console.log(
+      `${this.make} has accelerated to ${
+        this.speed
+      } km/ph and has a current battery level of ${this.#charge} percent.`
+    );
+    return this;
+  }
+
+  // brake() {
+  //   this.speed -= 5;
+  //   console.log(`${this.make} has decelerated to ${this.speed} km/ph.`);
+  //   return this;
+  // }
+}
+
+const tesla = new EVCl('Tesla', 100, 50);
+
+tesla
+  .chargeBattery(75)
+  .accelerate()
+  .brake()
+  .accelerate()
+  .accelerate()
+  .brake()
+  .chargeBattery(85);
