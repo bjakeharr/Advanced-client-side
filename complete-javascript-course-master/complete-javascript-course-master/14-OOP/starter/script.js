@@ -1,28 +1,28 @@
 'use strict';
 //===constructor function
 //typical naming structure of constructors includes a beginning capital letter.
-const Person = function (firstName, birthYear) {
-  this.firstName = firstName;
-  this.birthYear = birthYear;
+// const Person = function (firstName, birthYear) {
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
 
-  //dont create methods inside of constructor functions. THis bogs down resulting objects
-  //   this.calcAge = function(){
-  //     console.log(2037-birthYear);
-  //   }
-};
+//dont create methods inside of constructor functions. THis bogs down resulting objects
+//   this.calcAge = function(){
+//     console.log(2037-birthYear);
+//   }
+// };
 
-const jonas = new Person('Jonas', 1991);
+// const jonas = new Person('Jonas', 1991);
 // console.log(jonas);
 
-const matilda = new Person('Matilda', 2017);
-const jack = new Person('Jack', 1975);
+// const matilda = new Person('Matilda', 2017);
+// const jack = new Person('Jack', 1975);
 // console.log(matilda, jack);
 
 //prototypes
 //All objects made by a constructor function can inherit methods and variables assigned to the original by way of prototypal inheritance.
-Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
-};
+// Person.prototype.calcAge = function () {
+// console.log(2037 - this.birthYear);
+// };
 
 // jonas.calcAge();
 // console.log(jonas);
@@ -109,7 +109,7 @@ PersonCl.prototype.greeting = function () {
   console.log(`Hello ${this.fullName}`);
 };
 
-const jessica = new PersonCl('Jessica Davis', 1996);
+// const jessica = new PersonCl('Jessica Davis', 1996);
 // console.log(jessica);
 // jessica.calcAge();
 // jessica.greeting();
@@ -120,26 +120,26 @@ const jessica = new PersonCl('Jessica Davis', 1996);
 
 //================Setters and Getters=========
 //-----getters and setters for object literals
-const account = {
-  owner: jonas,
-  movements: [100, 500, 300, 200],
-  //Put prepositon GET to turn into a getter
-  get latest() {
-    return this.movements.slice(-1).pop();
-  },
-  //use prepopsition SET to turn to setter
-  set latest(mov) {
-    this.movements.push(mov);
-  },
-};
+// const account = {
+//   owner: jonas,
+//   movements: [100, 500, 300, 200],
+//   //Put prepositon GET to turn into a getter
+//   get latest() {
+//     return this.movements.slice(-1).pop();
+//   },
+//   //use prepopsition SET to turn to setter
+//   set latest(mov) {
+//     this.movements.push(mov);
+//   },
+// };
 
 //run the getter as a property instead of as a function
-console.log(account.latest);
+// console.log(account.latest);
 
 // calling setter
 //use a setter just like an expression
-account.latest = 50;
-console.log(account.movements);
+// account.latest = 50;
+// console.log(account.movements);
 
 //-------getters and setters for classes--------
 //getter in a class is called the same way as with object literals.
@@ -167,34 +167,105 @@ console.log(account.movements);
 
 //============Coding challenge 2
 
-class CarCl {
-  constructor(make, speed) {
-    this.make = make;
-    this.speed = speed;
-  }
+// class CarCl {
+//   constructor(make, speed) {
+//     this.make = make;
+//     this.speed = speed;
+//   }
 
-  get speedUS() {
-    return this.speed / 1.6;
-  }
+//   get speedUS() {
+//     return this.speed / 1.6;
+//   }
 
-  set speedUS(speed) {
-    this.speed = speed * 1.6;
-  }
+//   set speedUS(speed) {
+//     this.speed = speed * 1.6;
+//   }
 
-  accelerate() {
-    this.speed += 10;
-    console.log(`${this.make} is accelerating to ${this.speedUS}mp/h `);
-  }
+//   accelerate() {
+//     this.speed += 10;
+//     console.log(`${this.make} is accelerating to ${this.speedUS}mp/h `);
+//   }
 
-  brake() {
-    this.speed -= 5;
-    console.log(`${this.make} is decelerating to ${this.speedUS}mp/h `);
-  }
-}
+//   brake() {
+//     this.speed -= 5;
+//     console.log(`${this.make} is decelerating to ${this.speedUS}mp/h `);
+//   }
+// }
 
-const ford = new CarCl('ford', 100);
+// const ford = new CarCl('ford', 100);
 
-ford.accelerate();
-console.log(ford.speedUS);
-ford.speedUS = 50;
-console.log(ford);
+// ford.accelerate();
+// console.log(ford.speedUS);
+// ford.speedUS = 50;
+// console.log(ford);
+
+//==============Inheritance between classes -cosntructor functions
+
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+//Linking prototypes
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(`Hello my name is ${this.firstName} and I study ${this.course}`);
+};
+const mike = new Student('Mike', 2020, 'Computer Science');
+mike.introduce();
+
+mike.calcAge();
+console.log(mike.__proto__);
+
+//========Coding challenge 3
+// const Car = function (make, speed) {
+//   this.make = make;
+//   this.speed = speed;
+// };
+
+// Car.prototype.accelerate = function () {
+//   this.speed = this.speed + 10;
+
+//   console.log(`${this.make} has accelerated to ${this.speed}Km/h!`);
+// };
+
+// Car.prototype.brake = function () {
+//   this.speed = this.speed - 5;
+//   console.log(`${this.make} has decelerated to ${this.speed}Km/h!`);
+// };
+
+// const EV = function (make, speed, charge) {
+//   Car.call(this, make, speed);
+//   this.charge = charge;
+// };
+
+// EV.prototype = Object.create(Car.prototype);
+
+// EV.prototype.chargeBattery = function (chargeTo) {
+//   this.charge = chargeTo;
+//   console.log(`${this.make} has been charged to ${this.charge} percent`);
+// };
+
+// EV.prototype.accelerate = function () {
+//   this.speed += 20;
+//   this.charge -= 1;
+//   console.log(
+//     `${this.make} has accelerated to ${this.speed} km/ph and is now at a battery level of ${this.charge} percent`
+//   );
+// };
+
+// const prius = new EV('Prius', 100, 50);
+// prius.chargeBattery(70);
+// console.log(prius.__proto__);
+// prius.accelerate();
+// prius.brake();
