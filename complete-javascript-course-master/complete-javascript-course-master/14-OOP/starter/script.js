@@ -313,39 +313,48 @@ PersonCl.prototype.greeting = function () {
 // jay.calcAge();
 
 //==========Another class example
-// class Account {
-//   constructor(owner, currency, pin) {
-//     this.owner = owner;
-//     this.currency = currency;
-//     this.pin = pin;
-//     this.movements = [];
-//     this.local = navigator.language;
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this._pin = pin;
+    //protected property
+    this._movements = [];
+    this.local = navigator.language;
 
-//     console.log(`Thanks for opening an account ${owner}`);
-//   }
+    console.log(`Thanks for opening an account ${owner}`);
+  }
 
-//   deposit(val) {
-//     this.movements.push(val);
-//   }
+  //public interface
+  getMovements() {
+    return this._movements;
+  }
 
-//   withdraw(val) {
-//     this.deposit(-val);
-//   }
+  deposit(val) {
+    this._movements.push(val);
+  }
 
-//   approveLoan(val) {
-//     return true;
-//   }
+  withdraw(val) {
+    this.deposit(-val);
+  }
 
-//   requestLoan(val){
-//     if(this.approveLoan(val)){
-//       this.deposit(val);
-//       console.log(`Loan approved`);
-//     }
-//   }
-// }
+  _approveLoan(val) {
+    return true;
+  }
 
-// const acc1 = new Account('Jonas', 'EUR', 1111);
-// console.log(acc1);
-// acc1.deposit(250);
-// acc1.withdraw(140);
-// console.log(acc1);
+  requestLoan(val) {
+    if (this._approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan approved`);
+    }
+  }
+}
+
+const acc1 = new Account('Jonas', 'EUR', 1111);
+console.log(acc1);
+acc1.deposit(250);
+acc1.withdraw(140);
+console.log(acc1);
+console.log(acc1.getMovements());
+//=======Encapsulation Protected properties and Methods
+//The _ before a method signifies that this needs to be a protected method
