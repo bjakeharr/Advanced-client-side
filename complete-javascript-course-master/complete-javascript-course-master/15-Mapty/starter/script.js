@@ -24,7 +24,7 @@ if (navigator.geolocation)
       );
 
       const coords = [latitude, longitude];
-      const map = L.map('map').setView(coords, 13);
+      map = L.map('map').setView(coords, 13);
 
       L.tileLayer('https://tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
         attribution:
@@ -43,16 +43,18 @@ if (navigator.geolocation)
     }
   );
 
-//=========form event listener
+//=========form event listeners
 form.addEventListener('submit', function (e) {
   inputCadence.value =
     inputDuration.value =
-    inputCadence.value =
+    inputDistance.value =
     inputElevation.value =
       '';
 
   console.log(mapEvent);
   e.preventDefault();
+
+  console.log(mapEvent);
   const { lat, lng } = mapEvent.latlng;
   L.marker([lat, lng])
     .addTo(map)
@@ -67,4 +69,8 @@ form.addEventListener('submit', function (e) {
     )
     .setPopupContent('Workout')
     .openPopup();
+});
+inputType.addEventListener('change', function () {
+  inputElevation.closest('.form__row').classList.toggle('form__row--hidden');
+  inputCadence.closest('.form__row').classList.toggle('form__row--hidden');
 });
