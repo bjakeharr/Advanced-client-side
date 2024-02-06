@@ -148,14 +148,93 @@ const getCountryData = function (country) {
     });
 };
 
-btn.addEventListener('click', function () {
-  getCountryData('portugal');
-});
-
 //coding "challenge" 1
-const whereAmI = function (lat, lng) {
+// const whereAmI = function (lat, lng) {
+//   //grab data from the API
+//   fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+//     .then(res => {
+//       if (!res.ok) throw new Error('PProblem with Geocode API');
+//       //decode the data
+//       return res.json();
+//     })
+//     .then(data => {
+//       console.log(data);
+//       console.log(`You are in ${data.city}, ${data.country}.`);
+//       //pass data from previous query into new request
+//       return fetch(
+//         `https://countries-api-836d.onrender.com/countries/name/${data.country}`
+//       );
+//     })
+//     .then(res => {
+//       if (!res.ok) throw new Error(`Problem with fetching country data`);
+//       //decode data from new request
+//       return res.json();
+//     })
+//     .then(data => {
+//       console.log(data);
+//       //pass data to render function
+//       renderCountry(data[0]);
+//     })
+//     .catch(err => console.error(`${err.message}`));
+// };
+
+// whereAmI(52.508, 13.381);
+// whereAmI(19.037, 72.873);
+// whereAmI(-33.933, 18.474);
+
+///THe event loop in practice
+// console.log(`test start`);
+// setTimeout(() => console.log(`0 sec timer`), 0);
+// Promise.resolve(`Resolved promise 1`).then(res => console.log(res));
+// console.log('Test end');
+
+//building a promise
+
+// const lotteryPromise = new Promise(function (resolve, reject) {
+//   console.log(`lottery has started`);
+//   setTimeout(function () {
+//     if (Math.random() >= 0.5) {
+//       resolve(`You win`);
+//     } else {
+//       reject(`You lose`);
+//     }
+//   }, 2000);
+// });
+
+// lotteryPromise.then(res => console.log(res)).catch(err => console.log(err));
+
+//promisifying settimeout
+// const wait = function (seconds) {
+//   return new Promise(function (resolve) {
+//     setTimeout(resolve, seconds * 1000);
+//   });
+// };
+
+// wait(2)
+//   .then(() => {
+//     console.log(`Waited for two seconds`);
+//     return wait(1);
+//   })
+//   .then(() => console.log(`waited again`));
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    // navigator.geolocation.getCurrentPosition(
+    //   position => resolve(position),
+    //   err => reject(err)
+    // );
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+getPosition().then(pos => console.log(pos));
+
+const whereAmI = function () {
   //grab data from the API
-  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+  getPosition()
+    .then(pos => {
+      const { latitude: lat, longitude: lng } = pos.coords;
+      return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    })
     .then(res => {
       if (!res.ok) throw new Error('PProblem with Geocode API');
       //decode the data
@@ -182,41 +261,4 @@ const whereAmI = function (lat, lng) {
     .catch(err => console.error(`${err.message}`));
 };
 
-// whereAmI(52.508, 13.381);
-// whereAmI(19.037, 72.873);
-// whereAmI(-33.933, 18.474);
-
-///THe event loop in practice
-// console.log(`test start`);
-// setTimeout(() => console.log(`0 sec timer`), 0);
-// Promise.resolve(`Resolved promise 1`).then(res => console.log(res));
-// console.log('Test end');
-
-//building a promise
-
-const lotteryPromise = new Promise(function (resolve, reject) {
-  console.log(`lottery has started`);
-  setTimeout(function () {
-    if (Math.random() >= 0.5) {
-      resolve(`You win`);
-    } else {
-      reject(`You lose`);
-    }
-  }, 2000);
-});
-
-lotteryPromise.then(res => console.log(res)).catch(err => console.log(err));
-
-//promisifying settimeout
-const wait = function (seconds) {
-  return new Promise(function (resolve) {
-    setTimeout(resolve, seconds * 1000);
-  });
-};
-
-wait(2)
-  .then(() => {
-    console.log(`Waited for two seconds`);
-    return wait(1);
-  })
-  .then(() => console.log(`waited again`));
+btn.addEventListener('click', whereAmI);
