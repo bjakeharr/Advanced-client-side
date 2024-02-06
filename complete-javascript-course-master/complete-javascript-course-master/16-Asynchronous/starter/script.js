@@ -262,3 +262,55 @@ const whereAmI = function () {
 };
 
 btn.addEventListener('click', whereAmI);
+
+//coding challenge 2
+const imgContainer = document.querySelector('.images');
+
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+const createImg = function (imgPath) {
+  return new Promise(function (resolve, reject) {
+    let image = document.createElement('img');
+    image.src = imgPath;
+    image.addEventListener('load', function () {
+      imgContainer.append(image);
+      resolve(image);
+
+      image.addEventListener('load', function () {
+        reject(new Error('image not found'));
+      });
+    });
+  });
+};
+
+let currentImg;
+createImg('img/img-1.jpg')
+  .then(img => {
+    currentImg = img;
+    console.log(`immage loaded`);
+    return wait(2);
+  })
+  .then(() => {
+    currentImg.style.display = 'none';
+    return createImg('img/img-2.jpg');
+  })
+  .then(img => {
+    currentImg = img;
+    console.log(`image 2 loaded`);
+    return wait(2);
+  })
+  .then(() => {
+    currentImg.style.display = 'none';
+    return createImg('img/img-3.jpg');
+  })
+  .then(img => {
+    currentImg = img;
+    console.log(`image 3 loaded`);
+    return wait(2);
+  })
+  .then(() => (currentImg.style.display = 'none'))
+  .catch(err => console.error(err));
