@@ -63,38 +63,73 @@ const renderCountry = function (data, className) {
   countriesContainer.style.opacity = 1;
 };
 
-const getCountryandNeighbor = function (country) {
-  const request = new XMLHttpRequest();
-  request.open(
-    'GET',
-    `https://countries-api-836d.onrender.com/countries/name/${country}`
-  );
-  request.send();
-  request.addEventListener('load', function () {
-    const [data] = JSON.parse(this.responseText);
-    console.log(data);
+// const getCountryandNeighbor = function (country) {
+//   const request = new XMLHttpRequest();
+//   request.open(
+//     'GET',
+//     `https://countries-api-836d.onrender.com/countries/name/${country}`
+//   );
+//   request.send();
+//   request.addEventListener('load', function () {
+//     const [data] = JSON.parse(this.responseText);
+//     console.log(data);
 
-    //render country one
-    renderCountry(data);
+//     //render country one
+//     renderCountry(data);
 
-    //get neighbor country
-    const [neighbor] = data.borders;
+//     //get neighbor country
+//     const [neighbor] = data.borders;
 
-    if (!neighbor) return;
+//     if (!neighbor) return;
 
-    //AjAX call 2
-    const request2 = new XMLHttpRequest();
-    request2.open(
-      'GET',
-      `https://countries-api-836d.onrender.com/countries/alpha/${neighbor}`
-    );
-    request2.send();
+//     //AJAX call 2
+//     const request2 = new XMLHttpRequest();
+//     request2.open(
+//       'GET',
+//       `https://countries-api-836d.onrender.com/countries/alpha/${neighbor}`
+//     );
+//     request2.send();
 
-    request2.addEventListener('load', function () {
-      const data2 = JSON.parse(this.responseText);
-      renderCountry(data2, 'neighbour');
-    });
-  });
+//     request2.addEventListener('load', function () {
+//       const data2 = JSON.parse(this.responseText);
+//       renderCountry(data2, 'neighbour');
+//     });
+//   });
+// };
+
+// getCountryandNeighbor('usa');
+///===========promises
+
+// const request = new XMLHttpRequest();
+// request.open(
+//   'GET',
+//   `https://countries-api-836d.onrender.com/countries/name/${country}`
+// );
+// request.send();
+
+//new way
+const request = fetch(
+  `https://countries-api-836d.onrender.com/countries/name/portugal`
+);
+console.log(request);
+
+//a promise is an object that holds a spot for a value yet to be filled
+
+const getCountryData = function (country) {
+  fetch(`https://countries-api-836d.onrender.com/countries/name/${country}`)
+    .then(response => response.json())
+    .then(data => {
+      renderCountry(data[0]);
+      const neighbor = data[0].borders[0];
+
+      if (!neighbor) return;
+
+      //neighbor
+      return fetch(
+        `https://countries-api-836d.onrender.com/countries/alpha/${neighbor}`
+      );
+    })
+    .then(response => response.json())
+    .then(data => renderCountry(data, 'neighbour'));
 };
-
-getCountryandNeighbor('usa');
+getCountryData('usa');
