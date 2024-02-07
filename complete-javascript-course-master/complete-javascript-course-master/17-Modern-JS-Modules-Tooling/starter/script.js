@@ -6,7 +6,7 @@ console.log(`importing module`);
 // addToCart('bread', 5);
 // console.log(price, tq);
 //importing with all
-import * as ShoppingCart from './shoppingCart.js';
+import shoppingCart, * as ShoppingCart from './shoppingCart.js';
 ShoppingCart.addToCart('bread', 5);
 
 //default imports can be renamed when called upon
@@ -22,3 +22,30 @@ console.log(ShoppingCart.cart);
 const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
 const data = await res.json();
 console.log(data);
+
+//the moduule pattern
+//requires ife
+// const shoppingCart2 = (function () {
+//   const cart = [];
+//   const shippingCost = 10;
+//   const totalPrice = 237;
+//   const totalQuantity = 23;
+
+//   const addToCart = function (product, quantity) {
+//     cart.push((product, quantity));
+//     console.log(`${quantity} ${product} added to cart`);
+//   };
+
+//   const orderStock = function (product, quantity) {
+//     console.log(`${quantity} ${product} ordered from supplier`);
+//   };
+//   return {
+//     addToCart,
+//     cart,
+//     totalPrice,
+//     totalQuantity,
+//   };
+// })();
+
+// shoppingCart2.addToCart('apple', 4);
+// shoppingCart2.addToCart('pizza', 2);
