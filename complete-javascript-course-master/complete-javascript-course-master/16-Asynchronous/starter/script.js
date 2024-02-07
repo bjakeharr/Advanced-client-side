@@ -204,11 +204,11 @@ const getCountryData = function (country) {
 // lotteryPromise.then(res => console.log(res)).catch(err => console.log(err));
 
 //promisifying settimeout
-// const wait = function (seconds) {
-//   return new Promise(function (resolve) {
-//     setTimeout(resolve, seconds * 1000);
-//   });
-// };
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
 
 // wait(2)
 //   .then(() => {
@@ -262,7 +262,7 @@ const whereAmI = function () {
 };
 
 //coding challenge 2
-// const imgContainer = document.querySelector('.images');
+const imgContainer = document.querySelector('.images');
 
 // const wait = function (seconds) {
 //   return new Promise(function (resolve) {
@@ -359,3 +359,66 @@ const get3Countries = async function (c1, c2, c3) {
   }
 };
 get3Countries('japan', 'germany', 'iraq');
+
+//Promise.race settled as soon as ONE promise settles
+(async function () {
+  const res = await Promise.race([
+    getJSON(`https://countries-api-836d.onrender.com/countries/name/usa`),
+    getJSON(`https://countries-api-836d.onrender.com/countries/name/mexico`),
+    getJSON(`https://countries-api-836d.onrender.com/countries/name/egypt`),
+  ]);
+  console.log(res[0]);
+})();
+
+//promise.allsettled does not short circuit and will return once all promises are fulfilled ignores reject
+
+//coding challenge 3
+const createImg = function (imgPath) {
+  return new Promise(function (resolve, reject) {
+    let image = document.createElement('img');
+    image.src = imgPath;
+    image.addEventListener('load', function () {
+      imgContainer.append(image);
+      resolve(image);
+
+      image.addEventListener('load', function () {
+        reject(new Error('image not found'));
+      });
+    });
+  });
+};
+let currentImg;
+
+//coding challenge 3
+// const loadNPause = async function (imgPath) {
+//   try {
+//     const img1 = await createImg(imgPath);
+//     console.log('image 1 loaded');
+//     const wait1 = await wait(2);
+//     img1.style.display = 'none';
+//     const img2 = await createImg(`img/img-2.jpg`);
+//     console.log(`image 2 loaded`);
+//     const wait2 = await wait(2);
+//     img2.style.display = 'none';
+//     const img3 = await createImg(`img/img-3.jpg`);
+//     console.log(`image 3 loaded`);
+//     const wait3 = await wait(2);
+//     console.log(`sequence complete`);
+//   } catch (err) {
+//     console.error(`Something broke! ${err}`);
+//   }
+// };
+
+// loadNPause(`img/img-1.jpg`);
+
+const loadAll = async function (imgArr) {
+  try {
+    const imgs = imgArr.map(async img => await createImg(img));
+    const imgsEl = await Promise.all(imgs);
+    console.log(imgsEl);
+    imgsEl.forEach(img => img.classList.add('parallel'));
+  } catch (err) {
+    console.error(`something went wrong ${err.message}`);
+  }
+};
+loadAll(['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']);
