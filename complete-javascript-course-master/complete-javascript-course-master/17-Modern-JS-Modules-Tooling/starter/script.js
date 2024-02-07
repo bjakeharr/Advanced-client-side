@@ -16,3 +16,9 @@ add('bread', 3);
 add('pizza', 2);
 
 console.log(ShoppingCart.cart);
+
+//Top-level await can be used outside of an async function in modules only (ES2022) also blocks execution of code unlike its behavior in an async function
+
+const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
+const data = await res.json();
+console.log(data);
